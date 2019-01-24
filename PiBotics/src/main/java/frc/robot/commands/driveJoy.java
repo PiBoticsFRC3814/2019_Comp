@@ -28,9 +28,9 @@ public class driveJoy extends Command {
   @Override
   protected void execute() {
     double x = Robot.m_oi.driverStick.getX();
-    double y = Robot.m_oi.driverStick.getY();
+    double y = -Robot.m_oi.driverStick.getY();
 
-    Robot.m_driveTrain.arcadeDrive(x, y);
+    Robot.m_driveTrain.arcadeDrive(y, x);
   }
 
   // Make this return true when this Command no longer needs to run execute()

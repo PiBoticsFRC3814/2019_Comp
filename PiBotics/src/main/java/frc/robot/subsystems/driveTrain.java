@@ -32,10 +32,10 @@ public class driveTrain extends Subsystem {
   DifferentialDrive piboticsDrive;
 
   public driveTrain() {
-    lf = new WPI_TalonSRX(0);
+    lf = new WPI_TalonSRX(3);
     lr = new WPI_TalonSRX(1);
-    rf = new WPI_TalonSRX(2);
-    rr = new WPI_TalonSRX(3);
+    rf = new WPI_TalonSRX(4);
+    rr = new WPI_TalonSRX(2);
 
     left = new SpeedControllerGroup(lf,lr);
     right = new SpeedControllerGroup(rf,rr);
