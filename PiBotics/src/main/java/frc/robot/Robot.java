@@ -57,6 +57,7 @@ public class Robot extends TimedRobot {
     m_ClimbSolenoid = new ClimbSolenoid();
     m_ClimbTalon = new ClimbTalon();
     m_BallTalon = new BallTalon();
+    m_camControl = new CamServo();
     
     Comp = new Compressor(0);
 

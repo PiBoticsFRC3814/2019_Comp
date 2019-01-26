@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Servo;
+import frc.robot.commands.CameraControl;
 
 
 public class CamServo extends Subsystem {
@@ -21,7 +22,7 @@ public class CamServo extends Subsystem {
 
   @Override
   public void initDefaultCommand() {
-    
+    setDefaultCommand(new CameraControl());
   }
   public void CamXLeft()
   {
