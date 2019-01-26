@@ -40,7 +40,7 @@ public class driveTrain extends Subsystem {
     left = new SpeedControllerGroup(lf,lr);
     right = new SpeedControllerGroup(rf,rr);
     
-		piboticsDrive = new DifferentialDrive(left, right);
+    piboticsDrive = new DifferentialDrive(left, right);
 	}
 
 	public void arcadeDrive(double x, double y) {
