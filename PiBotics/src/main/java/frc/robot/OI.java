@@ -39,10 +39,10 @@ public class OI {
     
     intakeBall = new JoystickButton(buttonStick, 7),
     outputBall = new JoystickButton(buttonStick, 8),
-    tiltBallUp = new JoystickButton(buttonStick, 4),
-    tiltBallDown = new JoystickButton(buttonStick, 3),
-    liftBallUp = new JoystickButton(buttonStick, 10),
-    liftBallDown = new JoystickButton(buttonStick, 9);
+    tiltBallUp = new JoystickButton(buttonStick, 4), //ball solenoid systems and commands not made yet
+    tiltBallDown = new JoystickButton(buttonStick, 3), //ball solenoid systems and commands not made yet
+    liftBallUp = new JoystickButton(buttonStick, 10), //ball solenoid systems and commands not made yet
+    liftBallDown = new JoystickButton(buttonStick, 9); //ball solenoid systems and commands not made yet
 
   public OI(){
 
@@ -60,7 +60,7 @@ public class OI {
     extendFrontClimb.whenPressed(new FrontWheelsExtend());
     retractFrontClimb.whenPressed(new FrontWheelsRetract());
     extendBackClimb.whenPressed(new BackWheelsExtend());
-    extendBackClimb.whenPressed(new BackWheelsRetract());
+    retractBackClimb.whenPressed(new BackWheelsRetract());
     extendAllClimb.whenPressed(new FrontWheelsExtend());
     extendAllClimb.whenPressed(new BackWheelsExtend());
     driveForwards.whenActive(new ClimbDriveForward());

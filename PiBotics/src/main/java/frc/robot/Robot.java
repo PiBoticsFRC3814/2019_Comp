@@ -16,7 +16,9 @@ import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbSolenoid;
+import frc.robot.subsystems.ClimbSolenoidFront;
 import frc.robot.subsystems.ClimbTalon;
+import frc.robot.subsystems.HatchGrab;
 import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
 import frc.robot.subsystems.driveTrain;
@@ -36,6 +38,8 @@ public class Robot extends TimedRobot {
   public static ClimbTalon m_ClimbTalon;
   public static BallTalon m_BallTalon;
   public static CamServo m_camControl;
+  public static ClimbSolenoidFront m_ClimbSolenoidFront;
+  public static HatchGrab m_HatchGrab;
   
   public static OI m_oi;
 
@@ -58,6 +62,8 @@ public class Robot extends TimedRobot {
     m_ClimbTalon = new ClimbTalon();
     m_BallTalon = new BallTalon();
     m_camControl = new CamServo();
+    m_ClimbSolenoidFront = new ClimbSolenoidFront();
+    m_HatchGrab = new HatchGrab();
     
     Comp = new Compressor(0);
 

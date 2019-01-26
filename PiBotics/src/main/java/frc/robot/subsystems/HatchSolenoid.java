@@ -18,26 +18,18 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class HatchSolenoid extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  DoubleSolenoid grabSolenoid;
+  
   DoubleSolenoid tiltSolenoid;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    grabSolenoid = new DoubleSolenoid(4, 5);
+    
     tiltSolenoid = new DoubleSolenoid(6, 7);
   }
 
-  public void grabSolenoidControl()
-  {
-    grabSolenoid.set(Value.kForward);
-  }
-
-  public void releaseSolenoidControl()
-  {
-    grabSolenoid.set(Value.kReverse);
-  }  
+   
 
   public void tiltForward()
   {
