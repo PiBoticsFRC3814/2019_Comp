@@ -73,5 +73,10 @@ public class OI {
     intakeBall.whenInactive(new BallStopCommand());
     outputBall.whenActive(new BallReleaseCommand());
     outputBall.whenInactive(new BallStopCommand());
+
+    if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
+    {
+      new CameraControl();
+    }
   }
 }
