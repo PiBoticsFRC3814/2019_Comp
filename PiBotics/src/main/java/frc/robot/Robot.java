@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.subsystems.BallTalon;
+import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbSolenoid;
 import frc.robot.subsystems.ClimbTalon;
 import frc.robot.subsystems.HatchSolenoid;
@@ -34,6 +35,7 @@ public class Robot extends TimedRobot {
   public static ClimbSolenoid m_ClimbSolenoid;
   public static ClimbTalon m_ClimbTalon;
   public static BallTalon m_BallTalon;
+  public static CamServo m_camControl;
   
   public static OI m_oi;
 
@@ -136,6 +138,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    //putmunber(version,32.1)
   }
 
   /**
