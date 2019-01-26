@@ -27,21 +27,21 @@ public class CameraControl extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double x = Robot.m_oi.buttonStick.getX();
-    double y = -Robot.m_oi.buttonStick.getY();
-    if (x == 1.0)
+    double x = Robot.m_oi.buttonStick.getRawAxis(0);
+    double y = -Robot.m_oi.buttonStick.getRawAxis(1);
+    if (x > 0.2)
     {
       Robot.m_camControl.CamYDown();
     }
-    else if(x == -1.0)
+    else if(x < -0.2)
     {
       Robot.m_camControl.CamYUp();
     }
-    if (y == 1.0)
+    if (y > 0.2)
     {
       Robot.m_camControl.CamXLeft();
     }
-    else if (y == -1.0)
+    else if (y < -0.2)
     {
       Robot.m_camControl.CamXRight();
     }
