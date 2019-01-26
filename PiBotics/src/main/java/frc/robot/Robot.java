@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.ClimbSolenoid;
 import frc.robot.subsystems.ClimbTalon;
@@ -36,6 +37,8 @@ public class Robot extends TimedRobot {
   
   public static OI m_oi;
 
+  public static Compressor Comp;
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -47,6 +50,8 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     m_oi = new OI();
     m_driveTrain = new driveTrain();
+    Comp = new Compressor(0);
+    Comp.setClosedLoopControl(true);
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
