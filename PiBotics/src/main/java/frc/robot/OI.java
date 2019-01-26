@@ -21,14 +21,13 @@ public class OI {
 
     public Joystick driverStick = new Joystick(0);
     public Joystick buttonStick = new Joystick(2);
-    public Joystick buttonStick2 = new Joystick(3);
 
-    public Button extendHatch = new JoystickButton(buttonStick, 1),
-    retractHatch = new JoystickButton(buttonStick, 2),
-    tiltHatchUp = new JoystickButton(buttonStick, 3),
-    tiltHatchDown = new JoystickButton(buttonStick, 4),
-    hatchLeft = new JoystickButton(buttonStick, 5),
-    hatchRight = new JoystickButton(buttonStick, 6),
+    public Button extendHatch = new JoystickButton(buttonStick, 5),
+    retractHatch = new JoystickButton(buttonStick, 6),
+    tiltHatchUp = new JoystickButton(buttonStick, 11),
+    tiltHatchDown = new JoystickButton(buttonStick, 12),
+    hatchLeft = new JoystickButton(buttonStick, 13),
+    hatchRight = new JoystickButton(buttonStick, 14),
     
     extendFrontClimb = new JoystickButton(driverStick, 7),
     retractFrontClimb = new JoystickButton(driverStick, 8),
@@ -38,12 +37,12 @@ public class OI {
     driveForwards = new JoystickButton(driverStick, 9),
     driveBackwards = new JoystickButton(driverStick, 10),
     
-    intakeBall = new JoystickButton(buttonStick2, 1),
-    outputBall = new JoystickButton(buttonStick2, 2),
-    tiltBallUp = new JoystickButton(buttonStick, 16),
-    tiltBallDown = new JoystickButton(buttonStick, 17),
-    liftBallUp = new JoystickButton(buttonStick, 18),
-    liftBallDown = new JoystickButton(buttonStick, 19);
+    intakeBall = new JoystickButton(buttonStick, 7),
+    outputBall = new JoystickButton(buttonStick, 8),
+    tiltBallUp = new JoystickButton(buttonStick, 4),
+    tiltBallDown = new JoystickButton(buttonStick, 3),
+    liftBallUp = new JoystickButton(buttonStick, 10),
+    liftBallDown = new JoystickButton(buttonStick, 9);
 
   public OI(){
 
