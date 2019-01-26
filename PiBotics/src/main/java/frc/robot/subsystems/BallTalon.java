@@ -16,7 +16,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
 public class BallTalon extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  WPI_TalonSRX BallGrab = new WPI_TalonSRX(40);
+  WPI_TalonSRX BallGrab;
 
   double speed = 1.0;
   
@@ -25,6 +25,7 @@ public class BallTalon extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    BallGrab = new WPI_TalonSRX(20);
   }
   public void Intake()
   {

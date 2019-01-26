@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+//import frc.robot.commands.*;
 
 /**
  * Add your docs here.
@@ -17,13 +18,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class HatchSolenoid extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  DoubleSolenoid grabSolenoid = new DoubleSolenoid(4, 5);
-  DoubleSolenoid tiltHSolenoid = new DoubleSolenoid(6, 7);
+  DoubleSolenoid grabSolenoid;
+  DoubleSolenoid tiltSolenoid;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    grabSolenoid = new DoubleSolenoid(4, 5);
+    tiltSolenoid = new DoubleSolenoid(6, 7);
   }
 
   public void grabSolenoidControl()
@@ -38,10 +41,10 @@ public class HatchSolenoid extends Subsystem {
 
   public void tiltForward()
   {
-    tiltHSolenoid.set(Value.kForward);
+    tiltSolenoid.set(Value.kForward);
   }
   public void tiltBack()
   {
-    tiltHSolenoid.set(Value.kReverse);
+    tiltSolenoid.set(Value.kReverse);
   }
 }

@@ -21,6 +21,7 @@ public class OI {
 
     public Joystick driverStick = new Joystick(0);
     public Joystick buttonStick = new Joystick(2);
+    public Joystick buttonStick2 = new Joystick(3);
 
     public Button extendHatch = new JoystickButton(buttonStick, 1),
     retractHatch = new JoystickButton(buttonStick, 2),
@@ -37,8 +38,8 @@ public class OI {
     driveForwards = new JoystickButton(buttonStick, 12),
     driveBackwards = new JoystickButton(buttonStick, 13),
     
-    intakeBall = new JoystickButton(buttonStick, 14),
-    outputBall = new JoystickButton(buttonStick, 15),
+    intakeBall = new JoystickButton(buttonStick2, 1),
+    outputBall = new JoystickButton(buttonStick2, 2),
     tiltBallUp = new JoystickButton(buttonStick, 16),
     tiltBallDown = new JoystickButton(buttonStick, 17),
     liftBallUp = new JoystickButton(buttonStick, 18),

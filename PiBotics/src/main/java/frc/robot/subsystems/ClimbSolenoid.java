@@ -16,13 +16,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class ClimbSolenoid extends Subsystem {
   // Put methods for controlling this subsystem
-  DoubleSolenoid frontSolenoid = new DoubleSolenoid(0, 1);
-  DoubleSolenoid backSolenoid = new DoubleSolenoid(2, 3);
+  DoubleSolenoid frontSolenoid;
+  DoubleSolenoid backSolenoid;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    frontSolenoid = new DoubleSolenoid(0, 1);
+    backSolenoid = new DoubleSolenoid(2, 3);
   }
 
   public void FrontExtend()

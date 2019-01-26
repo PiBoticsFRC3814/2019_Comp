@@ -48,9 +48,18 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    m_oi = new OI();
+
     m_driveTrain = new driveTrain();
+    m_HatchSolenoid = new HatchSolenoid();
+    m_HatchTalon = new HatchTalon();
+    m_ClimbSolenoid = new ClimbSolenoid();
+    m_ClimbTalon = new ClimbTalon();
+    m_BallTalon = new BallTalon();
+    
     Comp = new Compressor(0);
+
+    m_oi = new OI();
+    
     Comp.setClosedLoopControl(true);
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
     // chooser.addOption("My Auto", new MyAutoCommand());

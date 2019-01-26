@@ -17,7 +17,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
 public class HatchTalon extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  WPI_TalonSRX Hatch = new WPI_TalonSRX(20);
+  WPI_TalonSRX Hatch;
 
   double leftSpeed = 1.0;  // we may want to map the speed variables for better editing purposes
   double rightSpeed = -1.0;
@@ -27,6 +27,7 @@ public class HatchTalon extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+    Hatch = new WPI_TalonSRX(40);
   }
   public void HatchLateralLeft()
   {

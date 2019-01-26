@@ -16,14 +16,14 @@ import com.ctre.phoenix.motorcontrol.can.*;
 public class ClimbTalon extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  WPI_TalonSRX climbDriveMotor = new WPI_TalonSRX(30);
+  WPI_TalonSRX climbDriveMotor;
 
   double speed = 1.0;
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    
+    climbDriveMotor = new WPI_TalonSRX(30);
   }
 
   public void DriveForward()
