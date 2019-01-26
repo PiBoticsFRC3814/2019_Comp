@@ -12,6 +12,11 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.subsystems.BallTalon;
+import frc.robot.subsystems.ClimbSolenoid;
+import frc.robot.subsystems.ClimbTalon;
+import frc.robot.subsystems.HatchSolenoid;
+import frc.robot.subsystems.HatchTalon;
 import frc.robot.subsystems.driveTrain;
 
 /**
@@ -23,6 +28,12 @@ import frc.robot.subsystems.driveTrain;
  */
 public class Robot extends TimedRobot {
   public static driveTrain m_driveTrain;
+  public static HatchSolenoid m_HatchSolenoid;
+  public static HatchTalon m_HatchTalon;
+  public static ClimbSolenoid m_ClimbSolenoid;
+  public static ClimbTalon m_ClimbTalon;
+  public static BallTalon m_BallTalon;
+  
   public static OI m_oi;
 
   Command m_autonomousCommand;
