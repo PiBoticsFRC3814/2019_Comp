@@ -72,6 +72,10 @@ public class OI {
     intakeBall.whenInactive(new BallStopCommand());
     outputBall.whenActive(new BallReleaseCommand());
     outputBall.whenInactive(new BallStopCommand());
+    tiltBallUp.whenActive(new BallTiltUpCommand());
+    tiltBallUp.whenInactive(new BallTiltStopCommand());
+    tiltBallDown.whenActive(new BallTiltDownCommand());
+    tiltBallDown.whenInactive(new BallTiltStopCommand());
 
     if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {

@@ -18,10 +18,12 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.subsystems.BallTalon;
+import frc.robot.subsystems.BallTiltTalon;
 import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbSolenoid;
 import frc.robot.subsystems.ClimbTalon;
@@ -44,6 +46,7 @@ public class Robot extends TimedRobot {
   public static ClimbSolenoid m_ClimbSolenoid;
   public static ClimbTalon m_ClimbTalon;
   public static BallTalon m_BallTalon;
+  public static BallTiltTalon m_BallTiltTalon;
   public static CamServo m_camControl;
   
   public static OI m_oi;
