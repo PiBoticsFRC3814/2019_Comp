@@ -6,38 +6,33 @@
 /*----------------------------------------------------------------------------*/
 
 package frc.robot.subsystems;
-
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.
  */
-public class ClimbSolenoid extends Subsystem {
+public class HatchGrab extends Subsystem {
   // Put methods for controlling this subsystem
+  // here. Call these from Commands.
+  DoubleSolenoid grabSolenoid;
   
-  DoubleSolenoid backSolenoid;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    
-    backSolenoid = new DoubleSolenoid(2, 3);
+    grabSolenoid = new DoubleSolenoid(4, 5);
   }
-
-  
-
-  public void BackExtend()
+  public void grabSolenoidControl()
   {
-    backSolenoid.set(Value.kForward);
+    grabSolenoid.set(Value.kForward);
   }
- 
 
-  public void BackRetract()
+  public void releaseSolenoidControl()
   {
-    backSolenoid.set(Value.kReverse);
-  }
-
+    grabSolenoid.set(Value.kReverse);
+  } 
 }

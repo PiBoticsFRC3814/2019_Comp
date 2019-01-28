@@ -18,11 +18,15 @@ public class CamServo extends Subsystem {
   Servo camX = new Servo(1);
   Servo camY = new  Servo(0);
   
-  double degrees;
+  double degrees = 90.0;
+  
+
 
   @Override
   public void initDefaultCommand() {
     setDefaultCommand(new CameraControl());
+    camX.setAngle(degrees);
+    camY.setAngle(degrees);
   }
   public void CamXLeft()
   {
