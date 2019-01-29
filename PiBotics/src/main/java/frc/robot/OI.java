@@ -39,10 +39,10 @@ public class OI {
     
     intakeBall = new JoystickButton(buttonStick, 7),
     outputBall = new JoystickButton(buttonStick, 8),
-    tiltBallUp = new JoystickButton(buttonStick, 4), //ball solenoid systems and commands not made yet
-    tiltBallDown = new JoystickButton(buttonStick, 3), //ball solenoid systems and commands not made yet
-    liftBallUp = new JoystickButton(buttonStick, 10), //ball solenoid systems and commands not made yet
-    liftBallDown = new JoystickButton(buttonStick, 9); //ball solenoid systems and commands not made yet
+    tiltBallUp = new JoystickButton(buttonStick, 4), 
+    tiltBallDown = new JoystickButton(buttonStick, 3), 
+    liftBallUp = new JoystickButton(buttonStick, 10), 
+    liftBallDown = new JoystickButton(buttonStick, 9); 
 
   public OI(){
 
@@ -76,6 +76,8 @@ public class OI {
     tiltBallUp.whenInactive(new BallTiltStopCommand());
     tiltBallDown.whenActive(new BallTiltDownCommand());
     tiltBallDown.whenInactive(new BallTiltStopCommand());
+    liftBallUp.whenPressed(new BallLiftUpCommand());
+    liftBallDown.whenPressed(new BallLiftDownCommand());
 
     if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {

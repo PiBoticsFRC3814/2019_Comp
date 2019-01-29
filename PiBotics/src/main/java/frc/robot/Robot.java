@@ -24,6 +24,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.BallTiltTalon;
+import frc.robot.subsystems.BallSolenoid;
 import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbSolenoid;
 import frc.robot.subsystems.ClimbSolenoidFront;
@@ -49,6 +50,7 @@ public class Robot extends TimedRobot {
   public static ClimbTalon m_ClimbTalon;
   public static BallTalon m_BallTalon;
   public static BallTiltTalon m_BallTiltTalon;
+  public static BallSolenoid m_BallSolenoid;
   public static CamServo m_camControl;
   public static ClimbSolenoidFront m_ClimbSolenoidFront;
   public static HatchGrab m_HatchGrab;
