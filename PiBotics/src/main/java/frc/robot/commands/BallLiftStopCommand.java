@@ -7,14 +7,15 @@
 
 package frc.robot.commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
+import frc.robot.subsystems.BallTiltTalon;
 
-public class BallLiftUpCommand extends Command {
-  public BallLiftUpCommand() {
+public class BallLiftStopCommand extends Command {
+  public BallLiftStopCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_BallLiftTalon);
+    requires(Robot.m_BallTiltTalon);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +26,7 @@ public class BallLiftUpCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_BallLiftTalon.BallLiftUp();
+    Robot.m_BallLiftTalon.BallLiftStop();
   }
 
   // Make this return true when this Command no longer needs to run execute()

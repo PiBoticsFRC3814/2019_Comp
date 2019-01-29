@@ -14,7 +14,7 @@ public class BallLiftDownCommand extends Command {
   public BallLiftDownCommand() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_BallSolenoid);
+    requires(Robot.m_BallLiftTalon);
   }
 
   // Called just before this Command runs the first time
@@ -25,7 +25,7 @@ public class BallLiftDownCommand extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_BallSolenoid.BallLiftDown();
+    Robot.m_BallLiftTalon.BallLiftDown();
   }
 
   // Make this return true when this Command no longer needs to run execute()

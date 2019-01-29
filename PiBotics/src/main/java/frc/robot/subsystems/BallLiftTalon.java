@@ -7,33 +7,38 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
  * Add your docs here.
  */
-public class BallSolenoid extends Subsystem {
+public class BallLiftTalon extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  DoubleSolenoid ballLift;
+  WPI_TalonSRX ballLift;
+  double speed = 1.0;
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
 
-    ballLift = new DoubleSolenoid(8, 9);
+    ballLift = new WPI_TalonSRX(25);
   }
 
   public void BallLiftUp()
   {
-    ballLift.set(Value.kForward);
+    ballLift.set(speed);
   }
   public void BallLiftDown()
   {
-    ballLift.set(Value.kReverse);
+    ballLift.set(-speed);
+  }
+  public void BallLiftStop()
+  {
+    ballLift.set(0.0);
   }
 }
