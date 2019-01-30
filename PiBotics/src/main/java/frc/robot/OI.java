@@ -62,7 +62,7 @@ public class OI {
     extendBackClimb.whenPressed(new BackWheelsExtend());
     retractBackClimb.whenPressed(new BackWheelsRetract());
     extendAllClimb.whenPressed(new FrontWheelsExtend());
-    extendAllClimb.whenPressed(new BackWheelsExtend());
+    extendAllClimb.whenPressed(new FrontWheelsExtend());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());

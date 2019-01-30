@@ -7,12 +7,9 @@
 
 package frc.robot;
 
-import org.opencv.core.Mat;
-import org.opencv.imgproc.Imgproc;
 
-import edu.wpi.cscore.CameraServerJNI;
-import edu.wpi.cscore.CvSink;
-import edu.wpi.cscore.CvSource;
+
+
 import edu.wpi.cscore.UsbCamera;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -22,6 +19,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.BallTiltTalon;
 import frc.robot.subsystems.BallLiftTalon;
@@ -55,6 +53,8 @@ public class Robot extends TimedRobot {
   public static ClimbSolenoidFront m_ClimbSolenoidFront;
   public static HatchGrab m_HatchGrab;
   
+  public static Timer timeguy;
+
   public static OI m_oi;
 
   public static Compressor Comp;
@@ -82,6 +82,8 @@ public class Robot extends TimedRobot {
     m_camControl = new CamServo();
     m_ClimbSolenoidFront = new ClimbSolenoidFront();
     m_HatchGrab = new HatchGrab();
+
+    timeguy = new Timer();
     
     Comp = new Compressor(0);
 
