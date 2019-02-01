@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 //import frc.robot.commands.*;
 
 /**
@@ -26,7 +27,7 @@ public class HatchSolenoid extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     
-    tiltSolenoid = new DoubleSolenoid(6, 7);
+    tiltSolenoid = new DoubleSolenoid(RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
   }
 
    

@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.*;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -23,7 +24,7 @@ public class ClimbTalon extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    climbDriveMotor = new WPI_TalonSRX(30);
+    climbDriveMotor = new WPI_TalonSRX(RobotMap.climb_Drives);
   }
 
   public void DriveForward()

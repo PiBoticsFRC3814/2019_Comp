@@ -10,13 +10,14 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Servo;
 import frc.robot.commands.CameraControl;
+import frc.robot.RobotMap;
 
 
 public class CamServo extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
-  Servo camX = new Servo(1);
-  Servo camY = new  Servo(0);
+  Servo camX = new Servo(RobotMap.camera_X);
+  Servo camY = new  Servo(RobotMap.camera_Y);
   
   double degrees = 90.0;
   

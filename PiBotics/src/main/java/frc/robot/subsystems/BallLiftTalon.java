@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -25,7 +26,7 @@ public class BallLiftTalon extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
 
-    ballLift = new WPI_TalonSRX(25);
+    ballLift = new WPI_TalonSRX(RobotMap.ball_Lift);
   }
 
   public void BallLiftUp()

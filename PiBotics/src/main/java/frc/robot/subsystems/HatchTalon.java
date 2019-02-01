@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.*;
+import frc.robot.RobotMap;
 
 
 /**
@@ -27,7 +28,7 @@ public class HatchTalon extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    Hatch = new WPI_TalonSRX(40);
+    Hatch = new WPI_TalonSRX(RobotMap.hatch_Slide);
   }
   public void HatchLateralLeft()
   {
