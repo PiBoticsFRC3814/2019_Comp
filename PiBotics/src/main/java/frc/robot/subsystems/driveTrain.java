@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import frc.robot.RobotMap;
 import frc.robot.commands.driveJoy;
 
 /**
@@ -32,10 +33,10 @@ public class driveTrain extends Subsystem {
   DifferentialDrive piboticsDrive;
 
   public driveTrain() {
-    lf = new WPI_TalonSRX(12);
-    lr = new WPI_TalonSRX(10);
-    rf = new WPI_TalonSRX(13);
-    rr = new WPI_TalonSRX(11);
+    lf = new WPI_TalonSRX(13);
+    lr = new WPI_TalonSRX(12);
+    rf = new WPI_TalonSRX(11);
+    rr = new WPI_TalonSRX(10);
 
     left = new SpeedControllerGroup(lf,lr);
     right = new SpeedControllerGroup(rf,rr);
@@ -44,7 +45,8 @@ public class driveTrain extends Subsystem {
 	}
 
 	public void arcadeDrive(double x, double y) {
-		piboticsDrive.arcadeDrive(x, y);
+    piboticsDrive.arcadeDrive(x, y);
+    RobotMap.test_map = 1.0;
 	}
 
   @Override
