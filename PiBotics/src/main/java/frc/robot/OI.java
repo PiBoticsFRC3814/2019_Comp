@@ -27,8 +27,8 @@ public class OI {
     retractHatch = new JoystickButton(buttonStick, 6),
     tiltHatchUp = new JoystickButton(buttonStick, 11),
     tiltHatchDown = new JoystickButton(buttonStick, 12),
-    hatchLeft = new JoystickButton(buttonStick, 13),
-    hatchRight = new JoystickButton(buttonStick, 14),
+    hatchLeft = new JoystickButton(driverStick, 4),
+    hatchRight = new JoystickButton(driverStick, 5),
     
     extendFrontClimb = new JoystickButton(driverStick, 7),
     retractFrontClimb = new JoystickButton(driverStick, 8),
