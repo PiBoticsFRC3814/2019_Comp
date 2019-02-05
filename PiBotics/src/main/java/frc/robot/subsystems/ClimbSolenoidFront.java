@@ -10,6 +10,7 @@ package frc.robot.subsystems;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import frc.robot.RobotMap;
 
 /**
  * Add your docs here.
@@ -23,7 +24,7 @@ public class ClimbSolenoidFront extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    frontSolenoid = new DoubleSolenoid(0, 1);
+    frontSolenoid = new DoubleSolenoid(RobotMap.climb_Front1, RobotMap.climb_Front2);
   }
   public void FrontExtend()
   {

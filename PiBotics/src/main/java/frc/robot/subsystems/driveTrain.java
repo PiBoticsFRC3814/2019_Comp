@@ -14,6 +14,7 @@ import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import frc.robot.RobotMap;
 import frc.robot.commands.driveJoy;
+import frc.robot.RobotMap;
 
 /**
  * An example subsystem.  You can replace me with your own Subsystem.
@@ -33,10 +34,17 @@ public class driveTrain extends Subsystem {
   DifferentialDrive piboticsDrive;
 
   public driveTrain() {
+<<<<<<< HEAD
     lf = new WPI_TalonSRX(13);
     lr = new WPI_TalonSRX(12);
     rf = new WPI_TalonSRX(11);
     rr = new WPI_TalonSRX(10);
+=======
+    lf = new WPI_TalonSRX(RobotMap.drive_lf);
+    lr = new WPI_TalonSRX(RobotMap.drive_lr);
+    rf = new WPI_TalonSRX(RobotMap.drive_rf);
+    rr = new WPI_TalonSRX(RobotMap.drive_rr);
+>>>>>>> 687c7da51a292b412954d1fe77010890bce95699
 
     left = new SpeedControllerGroup(lf,lr);
     right = new SpeedControllerGroup(rf,rr);

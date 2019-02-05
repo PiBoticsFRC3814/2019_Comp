@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import frc.robot.RobotMap;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -19,8 +20,8 @@ import edu.wpi.first.wpilibj.buttons.Button;
 public class OI {
   
 
-    public Joystick driverStick = new Joystick(0);
-    public Joystick buttonStick = new Joystick(2);
+    public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
+    public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
 
     public Button extendHatch = new JoystickButton(buttonStick, 5),
     retractHatch = new JoystickButton(buttonStick, 6),
@@ -62,7 +63,7 @@ public class OI {
     extendBackClimb.whenPressed(new BackWheelsExtend());
     retractBackClimb.whenPressed(new BackWheelsRetract());
     extendAllClimb.whenPressed(new FrontWheelsExtend());
-    extendAllClimb.whenPressed(new BackWheelsExtend());
+    extendAllClimb.whenPressed(new FrontWheelsExtend());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
