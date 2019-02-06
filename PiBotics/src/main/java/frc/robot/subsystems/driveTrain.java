@@ -12,6 +12,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import com.ctre.phoenix.motorcontrol.can.*;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import frc.robot.RobotMap;
 import frc.robot.commands.driveJoy;
 import frc.robot.RobotMap;
 
@@ -45,7 +46,8 @@ public class driveTrain extends Subsystem {
 	}
 
 	public void arcadeDrive(double x, double y) {
-		piboticsDrive.arcadeDrive(x, y);
+    piboticsDrive.arcadeDrive(x, y);
+    //RobotMap.test_map = 1.0;
 	}
 
   @Override
