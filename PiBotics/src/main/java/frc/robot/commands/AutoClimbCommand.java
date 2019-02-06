@@ -30,21 +30,21 @@ public class AutoClimbCommand extends Command {
   @Override
   protected void execute() {
     Robot.timeguy.start();
-    new FrontWheelsExtend();
-    new FrontWheelsExtend();
+    Robot.m_ClimbSolenoid.BackExtend();
+    Robot.m_ClimbSolenoidFront.FrontExtend();
     Robot.timeguy.delay(5);
     do
     {
-      new ClimbDriveForward();
+      Robot.m_ClimbTalon.DriveForward();;
     }while(Robot.timeguy.get() < 8.0);
-    new ClimbDriveStop();
-    new FrontWheelsRetract();
+    Robot.m_ClimbTalon.DriveStop();
+    Robot.m_ClimbSolenoidFront.FrontRetract();
     Robot.timeguy.delay(1);
     do
     {
-      new ClimbDriveForward();
+      Robot.m_ClimbTalon.DriveForward();
     }while(Robot.timeguy.get() < 12.0);
-    new BackWheelsRetract();
+    Robot.m_ClimbSolenoid.BackRetract();
 
 
     
