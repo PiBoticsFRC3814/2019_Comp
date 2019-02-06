@@ -18,6 +18,8 @@ import frc.robot.RobotMap;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
+
+    public static int hatch;
   
 
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
@@ -29,6 +31,9 @@ public class OI {
     tiltHatchDown = new JoystickButton(buttonStick, 12),
     hatchLeft = new JoystickButton(buttonStick, 13),
     hatchRight = new JoystickButton(buttonStick, 14),
+    hatchCenter = new JoystickButton(buttonStick, 1),
+
+    cameraCenter = new JoystickButton(buttonStick, 2),
     
     extendFrontClimb = new JoystickButton(driverStick, 7),
     retractFrontClimb = new JoystickButton(driverStick, 8),
@@ -55,9 +60,10 @@ public class OI {
     hatchLeft.whenInactive(new HatchStop());
     hatchRight.whenActive(new HatchRight());
     hatchRight.whenInactive(new HatchStop());
+    hatchCenter.whenPressed(new HatchCenter());
 
+    cameraCenter.whenPressed(new CameraCenter());
 
-  
     extendFrontClimb.whenPressed(new FrontWheelsExtend());
     retractFrontClimb.whenPressed(new FrontWheelsRetract());
     extendBackClimb.whenPressed(new BackWheelsExtend());

@@ -11,8 +11,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
 
-public class HatchLeft extends Command {
-  public HatchLeft() {
+public class HatchCenter extends Command {
+  public HatchCenter() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.m_HatchTalon);
@@ -26,8 +26,14 @@ public class HatchLeft extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_HatchTalon.HatchLateralLeft();
-    OI.hatch += 1;
+    while(OI.hatch > 0)
+    {
+      Robot.m_HatchTalon.HatchLateralRight();
+    }
+    while(OI.hatch < 0)
+    {    
+      Robot.m_HatchTalon.HatchLateralLeft();
+    }
   }
 
   // Make this return true when this Command no longer needs to run execute()

@@ -52,4 +52,9 @@ public class CamServo extends Subsystem {
     degrees += 1;
     camY.setAngle(degrees);
   }
+  public void CamCenter()
+  {
+    camX.setAngle(90.0);
+    camY.setAngle(90.0);
+  }
 }
