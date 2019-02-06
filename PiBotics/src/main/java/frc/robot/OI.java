@@ -29,16 +29,11 @@ public class OI {
     retractHatch = new JoystickButton(buttonStick, 6),
     tiltHatchUp = new JoystickButton(buttonStick, 11),
     tiltHatchDown = new JoystickButton(buttonStick, 12),
-<<<<<<< HEAD
-    hatchLeft = new JoystickButton(driverStick, 4),
-    hatchRight = new JoystickButton(driverStick, 5),
-=======
     hatchLeft = new JoystickButton(buttonStick, 13),
     hatchRight = new JoystickButton(buttonStick, 14),
     hatchCenter = new JoystickButton(buttonStick, 1),
 
     cameraCenter = new JoystickButton(buttonStick, 2),
->>>>>>> 385454c5092d2f2e4ca33dce7986c04d2460bd12
     
     extendFrontClimb = new JoystickButton(driverStick, 7),
     retractFrontClimb = new JoystickButton(driverStick, 8),
