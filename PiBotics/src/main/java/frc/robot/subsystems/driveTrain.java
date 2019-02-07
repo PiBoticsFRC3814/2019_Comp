@@ -45,8 +45,8 @@ public class driveTrain extends Subsystem {
     piboticsDrive = new DifferentialDrive(left, right);
 	}
 
-	public void arcadeDrive(double x, double y) {
-    piboticsDrive.arcadeDrive(x, y);
+	public void arcadeDrive(double y, double z) {
+    piboticsDrive.arcadeDrive(y, z);
     //RobotMap.test_map = 1.0;
 	}
 
