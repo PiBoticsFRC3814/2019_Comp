@@ -194,6 +194,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    SmartDashboard.putNumber("Hatch position", OI.hatch);
+    
     //putmunber(version,32.1)
   }
 
