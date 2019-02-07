@@ -27,10 +27,11 @@ public class driveJoy extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double x = Robot.m_oi.driverStick.getX();
     double y = -Robot.m_oi.driverStick.getY();
+    double z = Robot.m_oi.driverStick.getZ();
+    
 
-    Robot.m_driveTrain.arcadeDrive(y, x);
+    Robot.m_driveTrain.arcadeDrive(y, z);
   }
 
   // Make this return true when this Command no longer needs to run execute()

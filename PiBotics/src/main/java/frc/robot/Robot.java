@@ -88,6 +88,8 @@ public class Robot extends TimedRobot {
     Comp = new Compressor(0);
 
     m_oi = new OI();
+
+    OI.hatch = 0;
     
     Comp.setClosedLoopControl(true);
 
