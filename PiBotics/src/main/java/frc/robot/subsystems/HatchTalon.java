@@ -7,8 +7,11 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.*;
+
+import frc.robot.OI;
 import frc.robot.RobotMap;
 
 
@@ -20,9 +23,13 @@ public class HatchTalon extends Subsystem {
   // here. Call these from Commands.
   WPI_TalonSRX Hatch;
 
+  DigitalInput limitLeft = new DigitalInput(RobotMap.oi_LimitL);
+  DigitalInput limitRight = new DigitalInput(RobotMap.oi_LimitR);
+  public static DigitalInput limitCenter = new DigitalInput(RobotMap.oi_LimitC);
+
+
   double leftSpeed = 1.0;  // we may want to map the speed variables for better editing purposes
   double rightSpeed = -1.0;
-
 
   @Override
   public void initDefaultCommand() {
@@ -32,11 +39,19 @@ public class HatchTalon extends Subsystem {
   }
   public void HatchLateralLeft()
   {
+    while(limitLeft.get())
+    {
     Hatch.set(leftSpeed);
+    OI.hatch += 1;
+    }
   }
   public void HatchLateralRight()
   {
+    while(limitRight.get())
+    {
     Hatch.set(rightSpeed);
+    OI.hatch += 1;
+    }
   }
   public void HatchLateralStop()
   {

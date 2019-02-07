@@ -7,9 +7,13 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.RobotMap;
+import frc.robot.subsystems.HatchTalon;
+
 
 public class HatchCenter extends Command {
   public HatchCenter() {
@@ -29,10 +33,18 @@ public class HatchCenter extends Command {
     while(OI.hatch > 0)
     {
       Robot.m_HatchTalon.HatchLateralRight();
+      if(!HatchTalon.limitCenter.get())
+      {
+        OI.hatch = 0;
+      }
     }
     while(OI.hatch < 0)
     {    
       Robot.m_HatchTalon.HatchLateralLeft();
+      if(!HatchTalon.limitCenter.get())
+      {
+        OI.hatch = 0;
+      }
     }
   }
 
