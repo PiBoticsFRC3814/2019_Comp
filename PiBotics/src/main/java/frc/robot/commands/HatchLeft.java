@@ -27,6 +27,7 @@ public class HatchLeft extends Command {
   @Override
   protected void execute() {
     Robot.m_HatchTalon.HatchLateralLeft();
+    
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -38,6 +39,7 @@ public class HatchLeft extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+  
   }
 
   // Called when another command which requires one or more of the same

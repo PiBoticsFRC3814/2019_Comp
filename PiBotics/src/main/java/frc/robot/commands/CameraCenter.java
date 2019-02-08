@@ -26,6 +26,7 @@ public class CameraCenter extends Command {
   @Override
   protected void execute() {
     Robot.m_camControl.CamCenter();
+    end();
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -37,6 +38,7 @@ public class CameraCenter extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
+    return;
   }
 
   // Called when another command which requires one or more of the same

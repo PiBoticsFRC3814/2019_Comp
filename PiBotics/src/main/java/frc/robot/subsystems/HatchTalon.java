@@ -39,19 +39,15 @@ public class HatchTalon extends Subsystem {
   }
   public void HatchLateralLeft()
   {
-    while(limitLeft.get())
-    {
     Hatch.set(leftSpeed);
     OI.hatch += 1;
-    }
   }
   public void HatchLateralRight()
   {
-    while(limitRight.get())
-    {
+    
     Hatch.set(rightSpeed);
-    OI.hatch += 1;
-    }
+    OI.hatch += -1;
+    
   }
   public void HatchLateralStop()
   {

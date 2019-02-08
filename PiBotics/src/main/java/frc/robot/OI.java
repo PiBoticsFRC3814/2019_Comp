@@ -33,7 +33,7 @@ public class OI {
     hatchRight = new JoystickButton(driverStick, 6),
     hatchCenter = new JoystickButton(driverStick, 1),
 
-    cameraCenter = new JoystickButton(buttonStick, 2),
+    cameraCenter = new JoystickButton(driverStick, 2),
     
     extendFrontClimb = new JoystickButton(driverStick, 7),
     retractFrontClimb = new JoystickButton(driverStick, 8),
@@ -62,7 +62,8 @@ public class OI {
     hatchRight.whenInactive(new HatchStop());
     hatchCenter.whenPressed(new HatchCenter());
 
-    cameraCenter.whenPressed(new CameraCenter());
+    cameraCenter.whenActive(new CameraCenter());
+    cameraCenter.whenInactive(new CameraControl());
 
     extendFrontClimb.whenPressed(new FrontWheelsExtend());
     retractFrontClimb.whenPressed(new FrontWheelsRetract());
@@ -88,9 +89,9 @@ public class OI {
     liftBallDown.whenActive(new BallLiftDownCommand());
     liftBallDown.whenInactive(new BallLiftStopCommand());
 
-    if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
+    /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {
       new CameraControl();
-    }
+    }*/
   }
 }

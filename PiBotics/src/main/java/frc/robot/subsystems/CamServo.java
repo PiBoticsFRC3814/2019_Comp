@@ -20,6 +20,7 @@ public class CamServo extends Subsystem {
   Servo camY = new  Servo(RobotMap.camera_Y);
   
   double degrees = 90.0;
+  double center = 90.0;
   
 
 
@@ -54,7 +55,8 @@ public class CamServo extends Subsystem {
   }
   public void CamCenter()
   {
-    camX.setAngle(90.0);
-    camY.setAngle(90.0);
+    camX.setAngle(center);
+    camY.setAngle(center);
+    
   }
 }
