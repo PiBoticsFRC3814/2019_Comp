@@ -82,7 +82,7 @@ public class Robot extends TimedRobot {
 
     timeguy = new Timer();
     
-    Comp = new Compressor(0);
+    Comp = new Compressor(1);
 
     m_oi = new OI();
 
