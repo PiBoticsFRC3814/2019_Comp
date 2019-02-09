@@ -35,7 +35,7 @@ public class HatchCenter extends Command {
       Robot.m_HatchTalon.HatchLateralRight();
       if(!HatchTalon.limitCenter.get())
       {
-        //OI.hatch = 0;
+        OI.hatch = 0;
       }
     }
     while(OI.hatch < 0)
@@ -43,7 +43,7 @@ public class HatchCenter extends Command {
       Robot.m_HatchTalon.HatchLateralLeft();
       if(!HatchTalon.limitCenter.get())
       {
-        //OI.hatch = 0;
+        OI.hatch = 0;
       }
     }
     if (OI.hatch == 0)

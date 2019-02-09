@@ -197,6 +197,9 @@ public class Robot extends TimedRobot {
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
     SmartDashboard.putNumber("Hatch position test", OI.hatch);
+    SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
+    SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
+    SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
     
     //putmunber(version,32.1)
   }

@@ -23,8 +23,8 @@ public class HatchTalon extends Subsystem {
   // here. Call these from Commands.
   WPI_TalonSRX Hatch;
 
-  DigitalInput limitLeft = new DigitalInput(RobotMap.oi_LimitL);
-  DigitalInput limitRight = new DigitalInput(RobotMap.oi_LimitR);
+  public static DigitalInput limitLeft = new DigitalInput(RobotMap.oi_LimitL);
+  public static DigitalInput limitRight = new DigitalInput(RobotMap.oi_LimitR);
   public static DigitalInput limitCenter = new DigitalInput(RobotMap.oi_LimitC);
 
 
@@ -40,13 +40,13 @@ public class HatchTalon extends Subsystem {
   public void HatchLateralLeft()
   {
     Hatch.set(leftSpeed);
-    if (limitLeft.get())
+    if (!limitLeft.get())
     OI.hatch += 1;
   }
   public void HatchLateralRight()
   {
     Hatch.set(rightSpeed);
-    if (limitRight.get())
+    if (!limitRight.get())
     OI.hatch += -1;
     
   }
