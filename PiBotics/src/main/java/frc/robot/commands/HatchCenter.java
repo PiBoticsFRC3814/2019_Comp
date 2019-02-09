@@ -48,7 +48,7 @@ public class HatchCenter extends Command {
     }
     if (OI.hatch == 0)
     {
-      new HatchStop();
+      Robot.m_HatchTalon.HatchLateralStop();
     }
   }
 
