@@ -8,6 +8,7 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
 import frc.robot.Robot;
 
 /**
@@ -27,8 +28,17 @@ public class driveJoy extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double y = -Robot.m_oi.driverStick.getY();
-     double z = Robot.m_oi.driverStick.getZ();
+    double y, z;
+    if(OI.driveDirectionToggle) // changes the drive direction
+    {
+     y = -Robot.m_oi.driverStick.getY();
+     z = Robot.m_oi.driverStick.getZ();
+    }
+    else// changes the drive direction
+    {
+     y = Robot.m_oi.driverStick.getY();
+     z = -Robot.m_oi.driverStick.getZ();
+    }
     
 
     Robot.m_driveTrain.arcadeDrive(y, z);

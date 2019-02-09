@@ -30,19 +30,21 @@ public class HatchCenter extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    while(OI.hatch > 0)
+    if(OI.hatch > 0) // tells you what direction to go
     {
-      Robot.m_HatchTalon.HatchLateralRight();
-      if(!HatchTalon.limitCenter.get())
+      
+      while(HatchTalon.limitCenter.get()) // goes until hits center
       {
         OI.hatch = 0;
+        Robot.m_HatchTalon.HatchLateralRight();
       }
     }
-    while(OI.hatch < 0)
+    if(OI.hatch < 0)// tell you what direction to go
     {    
-      Robot.m_HatchTalon.HatchLateralLeft();
-      if(!HatchTalon.limitCenter.get())
+      
+      while(HatchTalon.limitCenter.get())//goes untill center
       {
+        Robot.m_HatchTalon.HatchLateralLeft();
         OI.hatch = 0;
       }
     }
