@@ -28,7 +28,7 @@ public class driveJoy extends Command {
   @Override
   protected void execute() {
     double y = -Robot.m_oi.driverStick.getY();
-    double z = Robot.m_oi.driverStick.getZ();
+     double z = Robot.m_oi.driverStick.getZ();
     
 
     Robot.m_driveTrain.arcadeDrive(y, z);
