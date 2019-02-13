@@ -88,10 +88,5 @@ public class OI {
     liftBallUp.whenInactive(new BallLiftStopCommand());
     liftBallDown.whenActive(new BallLiftDownCommand());
     liftBallDown.whenInactive(new BallLiftStopCommand());
-
-    /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
-    {
-      new CameraControl();
-    }*/
   }
 }
