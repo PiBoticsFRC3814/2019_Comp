@@ -153,8 +153,8 @@ import frc.robot.RobotMap;
 public class OI {
 
     public static int hatch;
-    public static boolean driveDirectionToggle = true;
-  
+    public static boolean driveDirection = true;
+    public static boolean toggle = true;  
 
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
     public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
@@ -173,7 +173,7 @@ public class OI {
     retractFrontClimb = new JoystickButton(driverStick, 8),
     extendBackClimb = new JoystickButton(driverStick, 11),
     retractBackClimb = new JoystickButton(driverStick, 12),
-    //extendAllClimb = new JoystickButton(driverStick, 3),
+    extendAllClimb = new JoystickButton(driverStick, 3),
     driveForwards = new JoystickButton(driverStick, 9),
     driveBackwards = new JoystickButton(driverStick, 10),
     
@@ -183,19 +183,24 @@ public class OI {
     tiltBallDown = new JoystickButton(buttonStick, 3);
 
   public OI(){
-
-    if (driverStick.getRawButton(4))
+    
+    
+    if(toggle && driverStick.getRawButton(4))
     {
-      if(driveDirectionToggle == false)
+      toggle = false;
+
+      if(!driveDirection)
       {
-        driveDirectionToggle = true;
-        Robot.timeguy.delay(0.5);
+        driveDirection = true;
       }
       else
       {
-        driveDirectionToggle = false;
-        Robot.timeguy.delay(0.5);
+        driveDirection = false;
       }
+    }
+    else if (!driverStick.getRawButton(4))
+    {
+      toggle = true;
     }
 
     extendHatch.whenPressed(new GrabHatchCommand());
@@ -215,18 +220,11 @@ public class OI {
     retractFrontClimb.whenPressed(new FrontWheelsRetract());
     extendBackClimb.whenPressed(new BackWheelsExtend());
     retractBackClimb.whenPressed(new BackWheelsRetract());
-    //extendAllClimb.whenActive(new FrontWheelsExtend());//needs command
-    //extendAllClimb.whenActive(new BackWheelsExtend());
+    extendAllClimb.whenActive(new ExtendAll());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
     driveBackwards.whenInactive(new ClimbDriveStop()); 
-
-    if (driverStick.getRawButton(3))
-    {
-      new FrontWheelsExtend();
-      new BackWheelsExtend();
-    }
     
     intakeBall.whenActive(new BallGrabCommand());
     intakeBall.whenInactive(new BallStopCommand());
