@@ -40,4 +40,14 @@ public class HatchSolenoid extends Subsystem {
   {
     tiltSolenoid.set(Value.kReverse);
   }
+  public boolean tiltDirection(){
+    if(tiltSolenoid.get() == Value.kForward)
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
 }
