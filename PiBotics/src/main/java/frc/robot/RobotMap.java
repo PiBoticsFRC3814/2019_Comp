@@ -25,14 +25,14 @@ public class RobotMap {
   public static final int climb_Drives = 30;
   public static final int hatch_Slide = 40;
   //solenoids
-  public static final int climb_Front1 = 0;
-  public static final int climb_Front2 = 1;
+  public static final int climb_Front1 = 6;
+  public static final int climb_Front2 = 7;
   public static final int climb_Back1 = 2;
   public static final int climb_Back2 = 3;
-  public static final int hatch_Grab1 = 4;
-  public static final int hatch_Grab2 = 5;
-  public static final int hatch_Tilt1 = 6;
-  public static final int hatch_Tilt2 = 7;
+  public static final int hatch_Grab1 = 0;
+  public static final int hatch_Grab2 = 1;
+  public static final int hatch_Tilt1 = 4;
+  public static final int hatch_Tilt2 = 5;
   //camera
   public static final int camera_X = 0;
   public static final int camera_Y = 1;
@@ -40,8 +40,8 @@ public class RobotMap {
   public static final int oi_Driver = 0;
   public static final int oi_Operator = 2;
   // limitswitches
-  public static final int oi_LimitL = 0;
-  public static final int oi_LimitR = 1;
+  public static final int oi_LimitL = 1;
+  public static final int oi_LimitR = 0;
   public static final int oi_LimitC = 2;
 
 }
