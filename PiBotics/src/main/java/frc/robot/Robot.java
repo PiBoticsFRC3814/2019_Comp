@@ -59,6 +59,9 @@ public class Robot extends TimedRobot {
 
   public static UsbCamera cam;
 
+  public static boolean driveDirection = true;
+  public static boolean toggle = true;
+
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
@@ -90,7 +93,7 @@ public class Robot extends TimedRobot {
     
     Comp.setClosedLoopControl(true);
 
-    cam = CameraServer.getInstance().startAutomaticCapture();
+    cam = CameraServer.getInstance().startAutomaticCapture(0);
 
     /*new Thread(() -> {
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
@@ -197,7 +200,27 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
     SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
-    //PSmartDashboard.putNumber("Version", versionNum);
+    
+    if(toggle && m_oi.driveToggle.get())
+    {
+      toggle = false;
+
+      if(!driveDirection)
+      {
+        driveDirection = true;
+      }
+      else
+      {
+        driveDirection = false;
+      }
+    }
+    else if (!m_oi.driveToggle.get())
+    {
+      toggle = true;
+    }
+    SmartDashboard.putBoolean("dr", driveDirection);
+    SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
+    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);
     
     //putmunber(version,32.1)
   }

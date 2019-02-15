@@ -19,9 +19,8 @@ public class HatchGrab extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   DoubleSolenoid grabSolenoid;
-  //public Boolean grabDirection = false;
+  public Boolean grabDirection = false;
   
-
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -32,25 +31,12 @@ public class HatchGrab extends Subsystem {
   public void grabSolenoidControl()
   {
     grabSolenoid.set(Value.kForward);
-    //grabDirection = true;
+    grabDirection = false;
   }
 
   public void releaseSolenoidControl()
   {
     grabSolenoid.set(Value.kReverse);
-    //grabDirection = false;
+    grabDirection = true;
   } 
-
-  public boolean grabForward()
-  {
-    if(grabSolenoid.get() == Value.kForward)
-    {
-      return true;
-    }
-    else
-    {
-      return false;
-    }
-  }
-
 }

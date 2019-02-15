@@ -29,7 +29,7 @@ public class driveJoy extends Command {
   @Override
   protected void execute() {
     double y, z;
-    if(OI.driveDirection) // changes the drive direction
+    if(Robot.driveDirection) // changes the drive direction
     {
      y = -Robot.m_oi.driverStick.getY();
      z = Robot.m_oi.driverStick.getZ();
@@ -37,10 +37,9 @@ public class driveJoy extends Command {
     else// changes the drive direction
     {
      y = Robot.m_oi.driverStick.getY();
-     z = -Robot.m_oi.driverStick.getZ();
+     z = Robot.m_oi.driverStick.getZ();
     }
     
-
     Robot.m_driveTrain.arcadeDrive(y, z);
   }
 

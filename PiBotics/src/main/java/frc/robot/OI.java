@@ -14,6 +14,7 @@ import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.RobotMap;
+import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -22,16 +23,17 @@ import frc.robot.RobotMap;
 public class OI {
 
     public static int hatch;
-    public static boolean driveDirection = true;
-    public static boolean toggle = true;  
+  
 
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
     public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
 
-    public Button extendHatch = new JoystickButton(buttonStick, 5),//this opens claw
-    retractHatch = new JoystickButton(buttonStick, 6),//this closes the claw
-    tiltHatchUp = new JoystickButton(buttonStick, 11),//this makes hatch go upright
-    tiltHatchDown = new JoystickButton(buttonStick, 12),//this makes hatch goes angled
+    //public Button extendHatch = new JoystickButton(buttonStick, 5),//this opens claw
+    //retractHatch = new JoystickButton(buttonStick, 6),//this closes the claw
+    //tiltHatchUp = new JoystickButton(buttonStick, 11),//this makes hatch go upright
+    //tiltHatchDown = new JoystickButton(buttonStick, 12),//this makes hatch goes angled
+    public Button toggleTilt = new JoystickButton(buttonStick, 5),
+    toggleGrab = new JoystickButton(buttonStick, 6),
     hatchLeft = new JoystickButton(driverStick, 5),
     hatchRight = new JoystickButton(driverStick, 6),
     hatchCenter = new JoystickButton(driverStick, 1),
@@ -45,6 +47,7 @@ public class OI {
     extendAllClimb = new JoystickButton(driverStick, 3),
     driveForwards = new JoystickButton(driverStick, 9),
     driveBackwards = new JoystickButton(driverStick, 10),
+    driveToggle = new JoystickButton(driverStick, 4),
     
     intakeBall = new JoystickButton(buttonStick, 7),
     outputBall = new JoystickButton(buttonStick, 8),
@@ -52,30 +55,13 @@ public class OI {
     tiltBallDown = new JoystickButton(buttonStick, 3);
 
   public OI(){
-    
-    
-    if(toggle && driverStick.getRawButton(4))
-    {
-      toggle = false;
 
-      if(!driveDirection)
-      {
-        driveDirection = true;
-      }
-      else
-      {
-        driveDirection = false;
-      }
-    }
-    else if (!driverStick.getRawButton(4))
-    {
-      toggle = true;
-    }
-
-    extendHatch.whenPressed(new GrabHatchCommand());
-    retractHatch.whenPressed(new ReleaseHatchCommand());
-    tiltHatchUp.whenPressed(new TiltHatchForwardCommand());
-    tiltHatchDown.whenPressed(new TiltHatchBackCommand());
+    //extendHatch.whenPressed(new GrabHatchCommand());
+    //retractHatch.whenPressed(new ReleaseHatchCommand());
+    //tiltHatchUp.whenPressed(new TiltHatchForwardCommand());
+    //tiltHatchDown.whenPressed(new TiltHatchBackCommand());
+    toggleTilt.whenPressed(new HatchTiltToggle());
+    toggleGrab.whenPressed(new HatchToggle());
     hatchLeft.whenActive(new HatchLeft());
     hatchLeft.whenInactive(new HatchStop());
     hatchRight.whenActive(new HatchRight());

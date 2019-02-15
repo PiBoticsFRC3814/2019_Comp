@@ -20,25 +20,26 @@ public class HatchTiltToggle extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    if (Robot.m_HatchSolenoid.tiltDirection())
+    if (Robot.m_HatchSolenoid.tiltDirection)
     {
-      Robot.m_HatchSolenoid.tiltBack();
+      Robot.m_HatchSolenoid.tiltForward();
     }
     else
     {
-      Robot.m_HatchSolenoid.tiltForward();
+      Robot.m_HatchSolenoid.tiltBack();
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
