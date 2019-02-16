@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Copyright (c) 2018 FIRST. All Rights Reserved.                             */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
@@ -8,57 +8,48 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.OI;
 import frc.robot.Robot;
 
-/**
- * An example command.  You can replace me with your own command.
- */
-public class driveJoy extends Command {
-  public driveJoy() {
+public class HatchToggle extends Command {
+  public HatchToggle() {
+    requires(Robot.m_HatchGrab);
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_driveTrain);
+    // eg. requires(chassis);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    double y, z;
-    if(Robot.driveDirection) // changes the drive direction
+    if(Robot.m_HatchGrab.grabDirection)
     {
-     y = -Robot.m_oi.driverStick.getY();
-     z = Robot.m_oi.driverStick.getZ();
+      Robot.m_HatchGrab.grabSolenoidControl();
     }
-    else// changes the drive direction
+    else
     {
-     y = Robot.m_oi.driverStick.getY();
-     z = Robot.m_oi.driverStick.getZ();
+      Robot.m_HatchGrab.releaseSolenoidControl();
     }
-    
-    Robot.m_driveTrain.arcadeDrive(y, z);
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_driveTrain.arcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
   }
 }

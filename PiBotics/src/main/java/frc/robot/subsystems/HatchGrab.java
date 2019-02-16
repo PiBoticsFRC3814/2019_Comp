@@ -19,21 +19,24 @@ public class HatchGrab extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   DoubleSolenoid grabSolenoid;
+  public Boolean grabDirection = false;
   
-
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     grabSolenoid = new DoubleSolenoid(RobotMap.hatch_Grab1, RobotMap.hatch_Grab2);
   }
+
   public void grabSolenoidControl()
   {
     grabSolenoid.set(Value.kForward);
+    grabDirection = false;
   }
 
   public void releaseSolenoidControl()
   {
     grabSolenoid.set(Value.kReverse);
+    grabDirection = true;
   } 
 }
