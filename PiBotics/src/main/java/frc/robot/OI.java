@@ -236,17 +236,10 @@ public class OI {
     tiltBallUp.whenInactive(new BallTiltStopCommand());
     tiltBallDown.whenActive(new BallTiltDownCommand());
     tiltBallDown.whenInactive(new BallTiltStopCommand());
-<<<<<<< HEAD
-    liftBallUp.whenActive(new BallLiftUpCommand());
-    liftBallUp.whenInactive(new BallLiftStopCommand());
-    liftBallDown.whenActive(new BallLiftDownCommand());
-    liftBallDown.whenInactive(new BallLiftStopCommand());
-=======
 
     /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {
       new CameraControl();
     }*/
->>>>>>> 86b22f5bc3f02cc2083b87f22c6939ba4a9210bd
   }
 }

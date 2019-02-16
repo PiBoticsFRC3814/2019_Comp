@@ -42,13 +42,16 @@ public class HatchTalon extends Subsystem {
     Hatch.set(leftSpeed);
     if (limitLeft.get())
     OI.hatch += 1;
+    else
+    OI.hatch = 20;
   }
   public void HatchLateralRight()
   {
     Hatch.set(rightSpeed);
     if (limitRight.get())
     OI.hatch += -1;
-    
+    else
+    OI.hatch = 20;
   }
   public void HatchLateralStop()
   {
