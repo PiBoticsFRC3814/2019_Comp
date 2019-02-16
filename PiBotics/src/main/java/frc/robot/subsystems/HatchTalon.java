@@ -51,7 +51,7 @@ public class HatchTalon extends Subsystem {
     if (limitRight.get())
     OI.hatch += -1;
     else
-    OI.hatch = 20;
+    OI.hatch = -20;
   }
   public void HatchLateralStop()
   {
