@@ -19,7 +19,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.BallTiltTalon;
@@ -33,6 +33,7 @@ import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
 import frc.robot.subsystems.driveTrain;
 import edu.wpi.first.wpilibj.CameraServer;
+import com.kauailabs.navx.frc.AHRS;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -62,10 +63,9 @@ public class Robot extends TimedRobot {
 
   public static UsbCamera cam;
 
+  AHRS gyro;
   public static boolean driveDirection = true;
   public static boolean toggle = true;
-
-  public static DoubleSolenoid test;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -94,6 +94,8 @@ public class Robot extends TimedRobot {
     Comp = new Compressor(1);
 
     m_oi = new OI();
+
+    gyro = new AHRS(SPI.Port.kMXP);
 
     OI.hatch = 0;
     
@@ -206,6 +208,15 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
     SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
+
+   // SmartDashboard.putNumber("gyro x", gyro.getAngleX());
+    //SmartDashboard.putNumber("gyro y", gyro.getAngleY());
+    //SmartDashboard.putNumber("gyro z", gyro.getAngleZ());
+    
+    SmartDashboard.putNumber("gyro roll", gyro.getRoll());
+    SmartDashboard.putNumber("gyro pitch", gyro.getPitch());
+    SmartDashboard.putNumber("gyro yaw", gyro.getYaw());
+    //PSmartDashboard.putNumber("Version", versionNum);
     
     if(toggle && m_oi.driveToggle.get())
     {

@@ -40,8 +40,8 @@ public class RobotMap {
   public static final int oi_Driver = 0;
   public static final int oi_Operator = 2;
   // limitswitches
-  public static final int oi_LimitL = 1;
-  public static final int oi_LimitR = 0;
+  public static final int oi_LimitL = 0;
+  public static final int oi_LimitR = 1;
   public static final int oi_LimitC = 2;
 
   public static boolean actuateTime = true;

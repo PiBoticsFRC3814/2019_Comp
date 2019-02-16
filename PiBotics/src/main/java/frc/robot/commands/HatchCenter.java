@@ -35,9 +35,9 @@ public class HatchCenter extends Command {
       
       while(HatchTalon.limitCenter.get()) // goes until hits center
       {
-        OI.hatch = 0;
         Robot.m_HatchTalon.HatchLateralRight();
-      }
+        OI.hatch = 0;
+       }
     }
     if(OI.hatch < 0)// tell you what direction to go
     {    

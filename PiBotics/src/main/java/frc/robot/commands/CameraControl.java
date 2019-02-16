@@ -8,7 +8,9 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.OI;
 import frc.robot.Robot;
+import frc.robot.subsystems.HatchTalon;
 
 
 public class CameraControl extends Command {
@@ -45,8 +47,12 @@ public class CameraControl extends Command {
     {
       Robot.m_camControl.CamXRight();
     }
-
+    if (!HatchTalon.limitCenter.get())
+  {
+    OI.hatch = 0;
   }
+  }
+  
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
