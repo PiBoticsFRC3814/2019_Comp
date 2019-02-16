@@ -27,7 +27,7 @@ public class HatchSolenoid extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     
-    tiltSolenoid = new DoubleSolenoid(RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
+    tiltSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
     
   }
 

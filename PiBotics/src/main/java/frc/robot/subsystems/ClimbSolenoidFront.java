@@ -24,7 +24,7 @@ public class ClimbSolenoidFront extends Subsystem {
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    frontSolenoid = new DoubleSolenoid(RobotMap.climb_Front1, RobotMap.climb_Front2);
+    frontSolenoid = new DoubleSolenoid(0, RobotMap.climb_Front1, RobotMap.climb_Front2);
   }
   public void FrontExtend()
   {

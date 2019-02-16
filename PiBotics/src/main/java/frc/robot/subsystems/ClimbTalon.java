@@ -19,7 +19,7 @@ public class ClimbTalon extends Subsystem {
   // here. Call these from Commands.
   WPI_TalonSRX climbDriveMotor;
 
-  double speed = 1.0;
+  double speed = 0.5;
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.

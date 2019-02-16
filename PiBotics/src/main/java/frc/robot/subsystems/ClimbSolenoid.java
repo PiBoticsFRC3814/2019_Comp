@@ -25,7 +25,7 @@ public class ClimbSolenoid extends Subsystem {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     
-    backSolenoid = new DoubleSolenoid(RobotMap.climb_Back1, RobotMap.climb_Back2);
+    backSolenoid = new DoubleSolenoid(0, RobotMap.climb_Back1, RobotMap.climb_Back2);
   }
 
   

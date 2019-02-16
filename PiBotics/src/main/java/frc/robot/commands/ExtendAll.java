@@ -32,6 +32,7 @@ public class ExtendAll extends CommandGroup {
     // arm.
     addSequential(new FrontWheelsExtend());
     addParallel(new BackWheelsExtend());
+    addParallel(new ClimbGyro());
 
 
   }

@@ -44,4 +44,9 @@ public class RobotMap {
   public static final int oi_LimitR = 0;
   public static final int oi_LimitC = 2;
 
+  public static boolean actuateTime = true;
+  public static boolean actualTime = true;
+  public static double slowTime = 0.0;
+  public static boolean timertest = true;
+
 }

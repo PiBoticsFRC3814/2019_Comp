@@ -19,6 +19,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.BallTalon;
 import frc.robot.subsystems.BallTiltTalon;
@@ -26,6 +27,7 @@ import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbSolenoid;
 import frc.robot.subsystems.ClimbSolenoidFront;
 import frc.robot.subsystems.ClimbTalon;
+import frc.robot.subsystems.GyroClimbing;
 import frc.robot.subsystems.HatchGrab;
 import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
@@ -50,6 +52,7 @@ public class Robot extends TimedRobot {
   public static CamServo m_camControl;
   public static ClimbSolenoidFront m_ClimbSolenoidFront;
   public static HatchGrab m_HatchGrab;
+  public static GyroClimbing m_GyroClimb;
   
   public static Timer timeguy;
 
@@ -61,6 +64,8 @@ public class Robot extends TimedRobot {
 
   public static boolean driveDirection = true;
   public static boolean toggle = true;
+
+  public static DoubleSolenoid test;
 
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
@@ -82,6 +87,7 @@ public class Robot extends TimedRobot {
     m_camControl = new CamServo();
     m_ClimbSolenoidFront = new ClimbSolenoidFront();
     m_HatchGrab = new HatchGrab();
+    m_GyroClimb = new GyroClimbing();
 
     timeguy = new Timer();
     
@@ -221,7 +227,13 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("dr", driveDirection);
     SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
     SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);
-    
+    SmartDashboard.putBoolean("front", m_GyroClimb.gyroFrontAllowed);
+    SmartDashboard.putBoolean("back", m_GyroClimb.gyroBackAllowed);
+    SmartDashboard.putBoolean("STOPALL", m_GyroClimb.stopAll);
+    SmartDashboard.putNumber("gyro", m_GyroClimb.GetAngle());
+    SmartDashboard.putBoolean("fstate", m_GyroClimb.front.get());
+    SmartDashboard.putBoolean("bstate", m_GyroClimb.rear.get());
+    SmartDashboard.putNumber("count", m_GyroClimb.cmdLoopCount);
     //putmunber(version,32.1)
   }
 
