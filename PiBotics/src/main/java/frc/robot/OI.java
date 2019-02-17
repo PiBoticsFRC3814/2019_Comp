@@ -33,26 +33,27 @@ public class OI {
     //tiltHatchUp = new JoystickButton(buttonStick, 11),//this makes hatch go upright
     //tiltHatchDown = new JoystickButton(buttonStick, 12),//this makes hatch goes angled
     public Button toggleTilt = new JoystickButton(buttonStick, 5),
-    toggleGrab = new JoystickButton(buttonStick, 6),
+    toggleGrab = new JoystickButton(driverStick, 11),
     hatchLeft = new JoystickButton(driverStick, 5),
     hatchRight = new JoystickButton(driverStick, 6),
-    hatchCenter = new JoystickButton(driverStick, 1),
+    hatchCenter = new JoystickButton(driverStick, 7),
 
-    cameraCenter = new JoystickButton(driverStick, 2),
+    //cameraCenter = new JoystickButton(driverStick, 2),
     
-    extendFrontClimb = new JoystickButton(driverStick, 7),
-    retractFrontClimb = new JoystickButton(driverStick, 8),
-    extendBackClimb = new JoystickButton(driverStick, 11),
-    retractBackClimb = new JoystickButton(driverStick, 12),
-    extendAllClimb = new JoystickButton(driverStick, 3),
-    driveForwards = new JoystickButton(driverStick, 9),
-    driveBackwards = new JoystickButton(driverStick, 10),
-    driveToggle = new JoystickButton(driverStick, 4),
+    //extendFrontClimb = new JoystickButton(buttonStick, 7),
+     //extendBackClimb = new JoystickButton(buttonStick, 11),
+    retractFrontClimb = new JoystickButton(buttonStick, 8),
+    retractBackClimb = new JoystickButton(buttonStick, 12),
+    extendAllClimb = new JoystickButton(buttonStick, 3),
+    driveForwards = new JoystickButton(buttonStick, 9),
+    driveBackwards = new JoystickButton(buttonStick, 10),
+
+    driveToggle = new JoystickButton(driverStick, 9),
     
-    intakeBall = new JoystickButton(buttonStick, 7),
-    outputBall = new JoystickButton(buttonStick, 8),
-    tiltBallUp = new JoystickButton(buttonStick, 4), 
-    tiltBallDown = new JoystickButton(buttonStick, 3);
+    //intakeBall = new JoystickButton(buttonStick, 7),
+    //outputBall = new JoystickButton(buttonStick, 8),
+    //tiltBallUp = new JoystickButton(buttonStick, 4), 
+    //tiltBallDown = new JoystickButton(buttonStick, 3);
 
   public OI(){
 
@@ -68,12 +69,12 @@ public class OI {
     hatchRight.whenInactive(new HatchStop());
     hatchCenter.whenPressed(new HatchCenter());
 
-    cameraCenter.whenActive(new CameraCenter());
-    cameraCenter.whenInactive(new CameraControl());
+    //cameraCenter.whenActive(new CameraCenter());
+    //cameraCenter.whenInactive(new CameraControl());
 
-    extendFrontClimb.whenPressed(new FrontWheelsExtend());
+    //extendFrontClimb.whenPressed(new FrontWheelsExtend());
+    //extendBackClimb.whenPressed(new BackWheelsExtend());
     retractFrontClimb.whenPressed(new FrontWheelsRetract());
-    extendBackClimb.whenPressed(new BackWheelsExtend());
     retractBackClimb.whenPressed(new BackWheelsRetract());
     extendAllClimb.whenActive(new ExtendAll());
     driveForwards.whenActive(new ClimbDriveForward());
@@ -81,14 +82,14 @@ public class OI {
     driveBackwards.whenActive(new ClimbDriveReverse());
     driveBackwards.whenInactive(new ClimbDriveStop()); 
     
-    intakeBall.whenActive(new BallGrabCommand());
-    intakeBall.whenInactive(new BallStopCommand());
-    outputBall.whenActive(new BallReleaseCommand());
-    outputBall.whenInactive(new BallStopCommand());
-    tiltBallUp.whenActive(new BallTiltUpCommand());
-    tiltBallUp.whenInactive(new BallTiltStopCommand());
-    tiltBallDown.whenActive(new BallTiltDownCommand());
-    tiltBallDown.whenInactive(new BallTiltStopCommand());
+    //intakeBall.whenActive(new BallGrabCommand());
+    //intakeBall.whenInactive(new BallStopCommand());
+    //outputBall.whenActive(new BallReleaseCommand());
+    //outputBall.whenInactive(new BallStopCommand());
+    //tiltBallUp.whenActive(new BallTiltUpCommand());
+    //tiltBallUp.whenInactive(new BallTiltStopCommand());
+    //tiltBallDown.whenActive(new BallTiltDownCommand());
+    //tiltBallDown.whenInactive(new BallTiltStopCommand());
 
     /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {
