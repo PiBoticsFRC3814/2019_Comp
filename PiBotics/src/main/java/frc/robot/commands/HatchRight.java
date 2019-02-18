@@ -27,6 +27,7 @@ public class HatchRight extends Command {
   @Override
   protected void execute() {
     Robot.m_HatchTalon.HatchLateralRight();
+    OI.hatch--;
   }
 
   // Make this return true when this Command no longer needs to run execute()

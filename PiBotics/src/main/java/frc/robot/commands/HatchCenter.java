@@ -25,39 +25,53 @@ public class HatchCenter extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.m_HatchTalon.centered = false;
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    if(!HatchTalon.limitRight.get()){
+      OI.hatch = -1000;
+    }
+    if(!HatchTalon.limitLeft.get()){
+      OI.hatch = 1000;
+    }
     if(OI.hatch > 0) // tells you what direction to go
     {
-      
-      while(HatchTalon.limitCenter.get()) // goes until hits center
+      Robot.m_HatchTalon.HatchLateralRight();
+      if(!HatchTalon.limitCenter.get()) // goes until hits center
       {
-        Robot.m_HatchTalon.HatchLateralRight();
         OI.hatch = 0;
-       }
+      } 
     }
     if(OI.hatch < 0)// tell you what direction to go
     {    
-      
-      while(HatchTalon.limitCenter.get())//goes untill center
+      Robot.m_HatchTalon.HatchLateralLeft();
+      if(!HatchTalon.limitCenter.get())//goes untill center
       {
-        Robot.m_HatchTalon.HatchLateralLeft();
         OI.hatch = 0;
       }
     }
     if (OI.hatch == 0)
     {
       Robot.m_HatchTalon.HatchLateralStop();
+      Robot.m_HatchTalon.centered = true;
     }
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    if (Robot.m_HatchTalon.centered)
+    {
+      Robot.m_HatchTalon.HatchLateralStop();
+      return true;
+    }
+    else
+    {
+      return false;
+    }
   }
 
   // Called once after isFinished returns true

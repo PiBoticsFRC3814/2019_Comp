@@ -31,6 +31,8 @@ public class HatchTalon extends Subsystem {
   double leftSpeed = 1.0;  // we may want to map the speed variables for better editing purposes
   double rightSpeed = -1.0;
 
+  public boolean centered = false;
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
@@ -40,18 +42,10 @@ public class HatchTalon extends Subsystem {
   public void HatchLateralLeft()
   {
     Hatch.set(leftSpeed);
-    if (limitLeft.get())
-    OI.hatch += 1;
-    else
-    OI.hatch = 20;
   }
   public void HatchLateralRight()
   {
     Hatch.set(rightSpeed);
-    if (limitRight.get())
-    OI.hatch += -1;
-    else
-    OI.hatch = -20;
   }
   public void HatchLateralStop()
   {

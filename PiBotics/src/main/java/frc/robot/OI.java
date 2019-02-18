@@ -22,7 +22,6 @@ public class OI {
 
     public static int hatch;
   
-
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
     public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
 
@@ -59,9 +58,5 @@ public class OI {
     driveBackwards.whenActive(new ClimbDriveReverse());
     driveBackwards.whenInactive(new ClimbDriveStop()); 
 
-    /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
-    {
-      new CameraControl();
-    }*/
   }
 }
