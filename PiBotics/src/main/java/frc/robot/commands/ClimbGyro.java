@@ -7,6 +7,8 @@
 
 package frc.robot.commands;
 
+import javax.lang.model.util.ElementScanner6;
+
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
@@ -15,113 +17,60 @@ import frc.robot.RobotMap;
 
 public class ClimbGyro extends Command {
   public ClimbGyro() {
-    requires(Robot.m_GyroClimb);
+    requires(Robot.m_ElevatorTalon);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_GyroClimb.gyroStop.reset();
-    Robot.m_GyroClimb.gyroStop.start();
-    Robot.m_GyroClimb.frontGo();
-    Robot.m_GyroClimb.rearGo();
-    RobotMap.slowTime = 0.0;
-    Robot.m_GyroClimb.cmdLoopCount = 0.0;
+    Robot.m_ElevatorTalon.gyroStop.reset();
+    Robot.m_ElevatorTalon.gyroStop.start();
+    Robot.m_ElevatorTalon.faultCount = 0;
+    Robot.m_ElevatorTalon.frontSpeed = 0.5;
+    Robot.m_ElevatorTalon.frontSpeed = 0.5;
+    Robot.m_ElevatorTalon.AllUp();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_GyroClimb.cmdLoopCount ++;
-    Robot.m_GyroClimb.angle = Robot.m_GyroClimb.GetAngle();
     
-
-    if(Robot.m_GyroClimb.angle < -1.0){
-      Robot.m_GyroClimb.gyroFrontAllowed = true;
+    if (Robot.m_ElevatorTalon.GetAngle() > 0.0)
+    {
+      Robot.m_ElevatorTalon.frontSpeed = (0.5-(Robot.m_ElevatorTalon.GetAngle()/360));
+      Robot.m_ElevatorTalon.backSpeed = 0.5;
+      Robot.m_ElevatorTalon.AllUp();
+    }
+    else if (Robot.m_ElevatorTalon.GetAngle() < 0.0)
+    {
+      Robot.m_ElevatorTalon.backSpeed = (0.5-(Robot.m_ElevatorTalon.GetAngle()/(-360)));
+      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+      Robot.m_ElevatorTalon.AllUp();
     }
     else
     {
-      Robot.m_GyroClimb.gyroFrontAllowed = false;
-    }
-    
-    if(Robot.m_GyroClimb.angle > 1.0){
-      Robot.m_GyroClimb.gyroBackAllowed = true;
-    }
-    else
-    {
-      Robot.m_GyroClimb.gyroBackAllowed = false;
+      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+      Robot.m_ElevatorTalon.AllUp();
     }
 
-    /*if(/*Robot.m_GyroClimb.angle > 5.0 || Robot.m_GyroClimb.angle < -5.0/ Robot.m_GyroClimb.gyroStop.get() >= 2) 
+    if (Robot.m_ElevatorTalon.elevatorFront.getOutputCurrent() > 50.0 || Robot.m_ElevatorTalon.elevatorBack.getOutputCurrent() > 50.0)
     {
-      Robot.m_GyroClimb.stopAll = true;
-      if (RobotMap.actuateTime)
-      {
-      SmartDashboard.putNumber("StopAll Time", Robot.m_GyroClimb.gyroStop.get());
-      RobotMap.actuateTime = false; 
-      }
-    }*/
-    //if(Robot.m_GyroClimb.angle < 2.0 && Robot.m_GyroClimb.angle > -2.0)
-    //{
-    //  Robot.m_GyroClimb.stopAll = false;
-    //}
-    
-    if(Robot.m_GyroClimb.stopAll)
-    {
-      Robot.m_GyroClimb.AllStop();
-      if (RobotMap.actualTime)
-      {
-      SmartDashboard.putNumber("actual Time", Robot.m_GyroClimb.gyroStop.get());
-      RobotMap.actualTime = false; 
-      }
+      Robot.m_ElevatorTalon.faultCount++;
     }
 
-if(Robot.m_GyroClimb.cmdLoopCount >= RobotMap.slowTime && Robot.m_GyroClimb.cmdLoopCount <= (RobotMap.slowTime+20000))
-{
-  RobotMap.timertest = true;
-    if (!Robot.m_GyroClimb.stopAll && Robot.m_GyroClimb.gyroFrontAllowed && Robot.m_GyroClimb.angle < -3.0)
-    {
-      Robot.m_GyroClimb.frontStop();
-    }
-    else if (!Robot.m_GyroClimb.stopAll)
-    {
-      Robot.m_GyroClimb.frontGo();
-    }
-
-    if (!Robot.m_GyroClimb.stopAll && !Robot.m_GyroClimb.stopAll && Robot.m_GyroClimb.gyroBackAllowed && Robot.m_GyroClimb.angle > 3.0)
-    {
-      Robot.m_GyroClimb.rearStop();
-    }
-    else if (!Robot.m_GyroClimb.stopAll)
-    {
-      Robot.m_GyroClimb.rearGo();
-    }
-  }
-  else if (RobotMap.timertest)
-  {
-  RobotMap.slowTime+=600;
-  RobotMap.timertest = false;
-  }
-  else
-  {
-    Robot.m_GyroClimb.AllStop();
-  }
-SmartDashboard.putNumber("pausecount", RobotMap.slowTime);
 }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    
-    if (Robot.m_GyroClimb.gyroStop.get() > 40.0)
-    {
-      Robot.m_GyroClimb.frontGo();
-      Robot.m_GyroClimb.rearGo();
-      return true;
-    }
-    else 
+    if (Robot.m_ElevatorTalon.gyroStop.get() > 10.0 || Robot.m_ElevatorTalon.faultCount > 50)
     {
       return false;
+    }
+    else
+    {
+      return true;
     }
   }
 

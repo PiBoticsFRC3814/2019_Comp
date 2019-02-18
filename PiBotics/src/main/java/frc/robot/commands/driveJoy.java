@@ -36,8 +36,8 @@ public class driveJoy extends Command {
     }
     else// changes the drive direction
     {
-     y = Robot.m_oi.driverStick.getY();
-     z = Robot.m_oi.driverStick.getZ();
+     y = (0.8)*Robot.m_oi.driverStick.getY(); //speed nerf probabably needed
+     z = Robot.m_oi.driverStick.getZ(); //speed nerf??
     }
     
     Robot.m_driveTrain.arcadeDrive(y, z);

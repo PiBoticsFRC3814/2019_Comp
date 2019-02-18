@@ -21,13 +21,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
-import frc.robot.subsystems.BallTalon;
-import frc.robot.subsystems.BallTiltTalon;
 import frc.robot.subsystems.CamServo;
-import frc.robot.subsystems.ClimbSolenoid;
-import frc.robot.subsystems.ClimbSolenoidFront;
 import frc.robot.subsystems.ClimbTalon;
-import frc.robot.subsystems.GyroClimbing;
+import frc.robot.subsystems.ElevatorTalon;
 import frc.robot.subsystems.HatchGrab;
 import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
@@ -46,14 +42,10 @@ public class Robot extends TimedRobot {
   public static driveTrain m_driveTrain;
   public static HatchSolenoid m_HatchSolenoid;
   public static HatchTalon m_HatchTalon;
-  public static ClimbSolenoid m_ClimbSolenoid;
   public static ClimbTalon m_ClimbTalon;
-  public static BallTalon m_BallTalon;
-  public static BallTiltTalon m_BallTiltTalon;
   public static CamServo m_camControl;
-  public static ClimbSolenoidFront m_ClimbSolenoidFront;
   public static HatchGrab m_HatchGrab;
-  public static GyroClimbing m_GyroClimb;
+  public static ElevatorTalon m_ElevatorTalon;
   
   public static Timer timeguy;
 
@@ -80,22 +72,16 @@ public class Robot extends TimedRobot {
     m_driveTrain = new driveTrain();
     m_HatchSolenoid = new HatchSolenoid();
     m_HatchTalon = new HatchTalon();
-    m_ClimbSolenoid = new ClimbSolenoid();
     m_ClimbTalon = new ClimbTalon();
-    m_BallTalon = new BallTalon();
-    m_BallTiltTalon = new BallTiltTalon();
     m_camControl = new CamServo();
-    m_ClimbSolenoidFront = new ClimbSolenoidFront();
     m_HatchGrab = new HatchGrab();
-    m_GyroClimb = new GyroClimbing();
+    m_ElevatorTalon = new ElevatorTalon();
 
     timeguy = new Timer();
     
     Comp = new Compressor(1);
 
     m_oi = new OI();
-
-    gyro = new AHRS(SPI.Port.kMXP);
 
     OI.hatch = 0;
     
@@ -238,14 +224,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("dr", driveDirection);
     SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
     SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);
-    SmartDashboard.putBoolean("front", m_GyroClimb.gyroFrontAllowed);
-    SmartDashboard.putBoolean("back", m_GyroClimb.gyroBackAllowed);
-    SmartDashboard.putBoolean("STOPALL", m_GyroClimb.stopAll);
-    SmartDashboard.putNumber("gyro", m_GyroClimb.GetAngle());
-    SmartDashboard.putBoolean("fstate", m_GyroClimb.front.get());
-    SmartDashboard.putBoolean("bstate", m_GyroClimb.rear.get());
-    SmartDashboard.putNumber("count", m_GyroClimb.cmdLoopCount);
-    //putmunber(version,32.1)
+
   }
 
   /**

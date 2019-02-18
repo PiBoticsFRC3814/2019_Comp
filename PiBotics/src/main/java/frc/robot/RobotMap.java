@@ -19,10 +19,9 @@ public class RobotMap {
   public static final int drive_lr = 12;
   public static final int drive_rf = 11;
   public static final int drive_rr = 10;
-  public static final int ball_Lift = 20;
-  public static final int ball_Intake = 21;
-  public static final int ball_Tilt = 22;
   public static final int climb_Drives = 30;
+  public static final int elevator_Front = 31;
+  public static final int elevator_Rear = 32;
   public static final int hatch_Slide = 40;
   //solenoids
   public static final int climb_Front1 = 6;

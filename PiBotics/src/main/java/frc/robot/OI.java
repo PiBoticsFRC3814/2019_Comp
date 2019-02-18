@@ -47,12 +47,7 @@ public class OI {
     extendAllClimb = new JoystickButton(driverStick, 3),
     driveForwards = new JoystickButton(driverStick, 9),
     driveBackwards = new JoystickButton(driverStick, 10),
-    driveToggle = new JoystickButton(driverStick, 4),
-    
-    intakeBall = new JoystickButton(buttonStick, 7),
-    outputBall = new JoystickButton(buttonStick, 8),
-    tiltBallUp = new JoystickButton(buttonStick, 4), 
-    tiltBallDown = new JoystickButton(buttonStick, 3);
+    driveToggle = new JoystickButton(driverStick, 4);
 
   public OI(){
 
@@ -71,24 +66,13 @@ public class OI {
     cameraCenter.whenActive(new CameraCenter());
     cameraCenter.whenInactive(new CameraControl());
 
-    extendFrontClimb.whenPressed(new FrontWheelsExtend());
-    retractFrontClimb.whenPressed(new FrontWheelsRetract());
-    extendBackClimb.whenPressed(new BackWheelsExtend());
-    retractBackClimb.whenPressed(new BackWheelsRetract());
+    retractFrontClimb.whileActive(new FrontWheelsRetract());
+    retractBackClimb.whileActive(new BackWheelsRetract());
     extendAllClimb.whenActive(new ExtendAll());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
     driveBackwards.whenInactive(new ClimbDriveStop()); 
-    
-    intakeBall.whenActive(new BallGrabCommand());
-    intakeBall.whenInactive(new BallStopCommand());
-    outputBall.whenActive(new BallReleaseCommand());
-    outputBall.whenInactive(new BallStopCommand());
-    tiltBallUp.whenActive(new BallTiltUpCommand());
-    tiltBallUp.whenInactive(new BallTiltStopCommand());
-    tiltBallDown.whenActive(new BallTiltDownCommand());
-    tiltBallDown.whenInactive(new BallTiltStopCommand());
 
     /*if(buttonStick.getRawAxis(0) > 0.2 || buttonStick.getRawAxis(0) < -0.2 || buttonStick.getRawAxis(1) > 0.2 || buttonStick.getRawAxis(1) < -0.2)
     {

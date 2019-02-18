@@ -14,7 +14,7 @@ public class BackWheelsRetract extends Command {
   public BackWheelsRetract() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
-    requires(Robot.m_ClimbSolenoid);
+    requires(Robot.m_ElevatorTalon);
   }
 
   // Called just before this Command runs the first time
@@ -25,13 +25,13 @@ public class BackWheelsRetract extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.m_ClimbSolenoid.BackRetract();
+    Robot.m_ElevatorTalon.FrontUp();
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
