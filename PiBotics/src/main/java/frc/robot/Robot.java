@@ -195,14 +195,6 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
 
-   // SmartDashboard.putNumber("gyro x", gyro.getAngleX());
-    //SmartDashboard.putNumber("gyro y", gyro.getAngleY());
-    //SmartDashboard.putNumber("gyro z", gyro.getAngleZ());
-    
-    SmartDashboard.putNumber("gyro roll", gyro.getRoll());
-    SmartDashboard.putNumber("gyro pitch", gyro.getPitch());
-    SmartDashboard.putNumber("gyro yaw", gyro.getYaw());
-    //PSmartDashboard.putNumber("Version", versionNum);
     
     if(toggle && m_oi.driveToggle.get())
     {

@@ -9,12 +9,10 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.Timer;
 import frc.robot.commands.*;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import frc.robot.RobotMap;
-import edu.wpi.first.wpilibj.smartdashboard.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -55,9 +53,7 @@ public class OI {
 
     retractFrontClimb.whileActive(new FrontWheelsRetract());
     retractBackClimb.whileActive(new BackWheelsRetract());
-    retractFrontClimb.whenPressed(new FrontWheelsRetract());
-    retractBackClimb.whenPressed(new BackWheelsRetract());
-    extendAllClimb.whenActive(new ExtendAll());
+    extendAllClimb.whenPressed(new ExtendAll());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());

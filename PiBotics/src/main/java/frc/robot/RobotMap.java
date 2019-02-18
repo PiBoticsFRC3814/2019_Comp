@@ -24,10 +24,6 @@ public class RobotMap {
   public static final int elevator_Rear = 32;
   public static final int hatch_Slide = 40;
   //solenoids
-  public static final int climb_Front1 = 6;
-  public static final int climb_Front2 = 7;
-  public static final int climb_Back1 = 2;
-  public static final int climb_Back2 = 3;
   public static final int hatch_Grab1 = 0;
   public static final int hatch_Grab2 = 1;
   public static final int hatch_Tilt1 = 4;

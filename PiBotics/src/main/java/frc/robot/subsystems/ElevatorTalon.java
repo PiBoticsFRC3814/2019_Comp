@@ -47,8 +47,6 @@ public class ElevatorTalon extends Subsystem {
     elevatorBack = new WPI_TalonSRX(RobotMap.elevator_Rear);
 
     gyro = new AHRS(Port.kMXP);
-
-    gyroStop.reset();
   }
 
   public double GetAngle(){

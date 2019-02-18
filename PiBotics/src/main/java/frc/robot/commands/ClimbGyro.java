@@ -66,11 +66,11 @@ public class ClimbGyro extends Command {
   protected boolean isFinished() {
     if (Robot.m_ElevatorTalon.gyroStop.get() > 10.0 || Robot.m_ElevatorTalon.faultCount > 50)
     {
-      return false;
+      return true;
     }
     else
     {
-      return true;
+      return false;
     }
   }
 
