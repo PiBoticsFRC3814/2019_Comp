@@ -31,11 +31,11 @@ public class OI {
     hatchRight = new JoystickButton(driverStick, 6),
     hatchCenter = new JoystickButton(driverStick, 7),
     
-    retractFrontClimb = new JoystickButton(buttonStick, 8),
-    retractBackClimb = new JoystickButton(buttonStick, 12),
+    retractFrontClimb = new JoystickButton(buttonStick, 10),
+    retractBackClimb = new JoystickButton(buttonStick, 9),
     extendAllClimb = new JoystickButton(buttonStick, 3),
-    driveForwards = new JoystickButton(buttonStick, 9),
-    driveBackwards = new JoystickButton(buttonStick, 10),
+    driveForwards = new JoystickButton(buttonStick, 8),
+    driveBackwards = new JoystickButton(buttonStick, 7),
 
     driveToggle = new JoystickButton(driverStick, 9);
     
@@ -50,9 +50,12 @@ public class OI {
     hatchRight.whenInactive(new HatchStop());
     hatchCenter.whenPressed(new HatchCenter());
 
-    retractFrontClimb.whileActive(new FrontWheelsRetract());
-    retractBackClimb.whileActive(new BackWheelsRetract());
-    extendAllClimb.whenPressed(new ExtendAll());
+    retractFrontClimb.whenPressed(new FrontWheelsRetract());
+    retractBackClimb.whenPressed(new BackWheelsRetract());
+    retractFrontClimb.whenReleased(new FrontWheelsStop());
+    retractBackClimb.whenReleased(new BackWheelsStop());
+    extendAllClimb.whenPressed(new ExtendAll());  //no gyro assist
+    extendAllClimb.whenReleased(new StopAll());    // no gyro held button
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());

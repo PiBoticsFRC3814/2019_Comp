@@ -55,16 +55,16 @@ public class ElevatorTalon extends Subsystem {
   }
 
   public void AllUp(){
-    elevatorFront.set(frontSpeed);
-    elevatorBack.set(backSpeed);
+    elevatorFront.set(-frontSpeed);
+    elevatorBack.set(-backSpeed);
   }
 
   public void FrontUp(){
-    elevatorFront.set(-1.0);
+    elevatorFront.set(0.5);
   }
 
   public void BackUp(){
-    elevatorBack.set(-1.0);
+    elevatorBack.set(0.5);
   }
 
   public void FrontStop(){

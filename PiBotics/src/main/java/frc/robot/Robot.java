@@ -194,8 +194,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
     SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
-
-    
+    SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
+    /*
     if(toggle && m_oi.driveToggle.get())
     {
       toggle = false;
@@ -213,6 +213,7 @@ public class Robot extends TimedRobot {
     {
       toggle = true;
     }
+    */
     SmartDashboard.putBoolean("dr", driveDirection);
     SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
     SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);

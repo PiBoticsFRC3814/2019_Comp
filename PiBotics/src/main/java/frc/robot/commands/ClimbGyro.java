@@ -23,34 +23,33 @@ public class ClimbGyro extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    Robot.m_ElevatorTalon.gyroStop.reset();
-    Robot.m_ElevatorTalon.gyroStop.start();
+    //Robot.m_ElevatorTalon.gyroStop.start();
     Robot.m_ElevatorTalon.faultCount = 0;
     Robot.m_ElevatorTalon.frontSpeed = 0.5;
-    Robot.m_ElevatorTalon.frontSpeed = 0.5;
+    Robot.m_ElevatorTalon.backSpeed = 0.5;
     Robot.m_ElevatorTalon.AllUp();
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    
-    if (Robot.m_ElevatorTalon.GetAngle() > 0.0)
+
+    if ((Robot.m_ElevatorTalon.GetAngle()-1.0) < 0.0)
     {
-      Robot.m_ElevatorTalon.frontSpeed = (0.5-(Robot.m_ElevatorTalon.GetAngle()/360));
+      Robot.m_ElevatorTalon.frontSpeed = (0.5-0.1);
       Robot.m_ElevatorTalon.backSpeed = 0.5;
       Robot.m_ElevatorTalon.AllUp();
     }
-    else if (Robot.m_ElevatorTalon.GetAngle() < 0.0)
+    else if ((Robot.m_ElevatorTalon.GetAngle()-1.0) > 0.0)
     {
-      Robot.m_ElevatorTalon.backSpeed = (0.5-(Robot.m_ElevatorTalon.GetAngle()/(-360)));
+      Robot.m_ElevatorTalon.backSpeed = (0.5-0.1);
       Robot.m_ElevatorTalon.frontSpeed = 0.5;
       Robot.m_ElevatorTalon.AllUp();
     }
     else
     {
       Robot.m_ElevatorTalon.frontSpeed = 0.5;
-      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+      Robot.m_ElevatorTalon.backSpeed = 0.5;
       Robot.m_ElevatorTalon.AllUp();
     }
 
@@ -58,13 +57,13 @@ public class ClimbGyro extends Command {
     {
       Robot.m_ElevatorTalon.faultCount++;
     }
-
+    //Robot.m_ElevatorTalon.AllUp();
 }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    if (Robot.m_ElevatorTalon.gyroStop.get() > 10.0 || Robot.m_ElevatorTalon.faultCount > 50)
+   /* if (Robot.m_ElevatorTalon.gyroStop.get() > 10.0 || Robot.m_ElevatorTalon.faultCount > 50)
     {
       return true;
     }
@@ -72,6 +71,8 @@ public class ClimbGyro extends Command {
     {
       return false;
     }
+    */
+    return false;
   }
 
   // Called once after isFinished returns true
