@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbTalon;
@@ -53,7 +52,8 @@ public class Robot extends TimedRobot {
 
   public static Compressor Comp;
 
-  public static UsbCamera cam;
+  public static UsbCamera cam1;
+  public static UsbCamera cam2;
 
   AHRS gyro;
   public static boolean driveDirection = true;
@@ -87,7 +87,8 @@ public class Robot extends TimedRobot {
     
     Comp.setClosedLoopControl(true);
 
-    cam = CameraServer.getInstance().startAutomaticCapture(0);
+    cam1 = CameraServer.getInstance().startAutomaticCapture("cam1",0);
+    cam2 = CameraServer.getInstance().startAutomaticCapture("cam2",1);
 
     /*new Thread(() -> {
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
@@ -216,7 +217,7 @@ public class Robot extends TimedRobot {
     */
     SmartDashboard.putBoolean("dr", driveDirection);
     SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
-    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);
+    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);
 
   }
 
