@@ -36,13 +36,13 @@ public class ClimbGyro extends Command {
 
     if ((Robot.m_ElevatorTalon.GetAngle()-1.0) < 0.0)
     {
-      Robot.m_ElevatorTalon.frontSpeed = (0.5-0.1);
+      Robot.m_ElevatorTalon.frontSpeed = (0.5-(0.2)); // adjust seems to be not enough increased from .1 to .2
       Robot.m_ElevatorTalon.backSpeed = 0.5;
       Robot.m_ElevatorTalon.AllUp();
     }
     else if ((Robot.m_ElevatorTalon.GetAngle()-1.0) > 0.0)
     {
-      Robot.m_ElevatorTalon.backSpeed = (0.5-0.1);
+      Robot.m_ElevatorTalon.backSpeed = (0.5-(0.2)); //adjust seems to be not enough? increased from .1 to .2
       Robot.m_ElevatorTalon.frontSpeed = 0.5;
       Robot.m_ElevatorTalon.AllUp();
     }
