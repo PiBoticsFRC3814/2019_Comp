@@ -52,11 +52,7 @@ public class Robot extends TimedRobot {
 
   public static Compressor Comp;
 
-<<<<<<< HEAD
-  public static UsbCamera cam;
-=======
   public static UsbCamera cam1;
->>>>>>> 884773ffd92895ae7e580889ad436f2609a0cd81
   public static UsbCamera cam2;
 
   AHRS gyro;
