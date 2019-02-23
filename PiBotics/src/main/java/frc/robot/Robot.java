@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
-import edu.wpi.first.wpilibj.SPI;
 import edu.wpi.first.wpilibj.Timer;
 import frc.robot.subsystems.CamServo;
 import frc.robot.subsystems.ClimbTalon;
@@ -53,7 +52,11 @@ public class Robot extends TimedRobot {
 
   public static Compressor Comp;
 
+<<<<<<< HEAD
   public static UsbCamera cam;
+=======
+  public static UsbCamera cam1;
+>>>>>>> 884773ffd92895ae7e580889ad436f2609a0cd81
   public static UsbCamera cam2;
 
   AHRS gyro;
@@ -88,7 +91,8 @@ public class Robot extends TimedRobot {
     
     Comp.setClosedLoopControl(true);
 
-    cam = CameraServer.getInstance().startAutomaticCapture(0);
+    cam1 = CameraServer.getInstance().startAutomaticCapture("cam1",0);
+    cam2 = CameraServer.getInstance().startAutomaticCapture("cam2",1);
 
     /*new Thread(() -> {
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
@@ -195,8 +199,8 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
     SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
-
-    
+    SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
+    /*
     if(toggle && m_oi.driveToggle.get())
     {
       toggle = false;
@@ -214,9 +218,10 @@ public class Robot extends TimedRobot {
     {
       toggle = true;
     }
+    */
     SmartDashboard.putBoolean("dr", driveDirection);
     SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
-    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);   //PSmartDashboard.putNumber("Version", versionNum);
+    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);
 
   }
 
