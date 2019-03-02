@@ -38,12 +38,12 @@ public class RobotMap {
   public static final int oi_LimitL = 0;
   public static final int oi_LimitR = 1;
   public static final int oi_LimitC = 2;
-
+  //not sure what theese time variables are
   public static boolean actuateTime = true;
   public static boolean actualTime = true;
   public static double slowTime = 0.0;
   public static boolean timertest = true;
-
+  //climb speed and gyro adjustment vaules
   public static final double climbSpeed = 0.75;
   public static final double climbAdjustSpeed = 0.2; //adjust speed of 0.1 was not enough increased to 0.2
   public static final double gyroOffset = 1.0; //in our practivce this was around 1.0 degrees off might need to change at comp
