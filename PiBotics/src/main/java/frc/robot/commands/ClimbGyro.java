@@ -25,36 +25,36 @@ public class ClimbGyro extends Command {
   protected void initialize() {
     //Robot.m_ElevatorTalon.gyroStop.start();
     Robot.m_ElevatorTalon.faultCount = 0;
-    Robot.m_ElevatorTalon.frontSpeed = 0.5;
-    Robot.m_ElevatorTalon.backSpeed = 0.5;
+    Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
+    Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
     Robot.m_ElevatorTalon.AllUp();
-  }
+  }//unsure when this initialize is recalled?  might re initialize if buttons are restriked?
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
 
-    if ((Robot.m_ElevatorTalon.GetAngle()-1.0) < 0.0)
-    {
-      Robot.m_ElevatorTalon.frontSpeed = (0.5-(0.2)); // adjust seems to be not enough increased from .1 to .2
-      Robot.m_ElevatorTalon.backSpeed = 0.5;
+    if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) < 0.0)
+    {//this will adjust the front speed motor if the front of the robot is too high
+      Robot.m_ElevatorTalon.frontSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed)); 
+      Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
-    else if ((Robot.m_ElevatorTalon.GetAngle()-1.0) > 0.0)
-    {
-      Robot.m_ElevatorTalon.backSpeed = (0.5-(0.2)); //adjust seems to be not enough? increased from .1 to .2
-      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+    else if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) > 0.0)
+    {//this will adjust the back speed motor if the back of the robot is too high
+      Robot.m_ElevatorTalon.backSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed));
+      Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
     else
-    {
-      Robot.m_ElevatorTalon.frontSpeed = 0.5;
-      Robot.m_ElevatorTalon.backSpeed = 0.5;
+    {//robot is level so not adjustments are made
+      Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
+      Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
 
     if (Robot.m_ElevatorTalon.elevatorFront.getOutputCurrent() > 50.0 || Robot.m_ElevatorTalon.elevatorBack.getOutputCurrent() > 50.0)
-    {
+    {//this is currently not being used.  may be an option in the future for timing
       Robot.m_ElevatorTalon.faultCount++;
     }
     //Robot.m_ElevatorTalon.AllUp();
