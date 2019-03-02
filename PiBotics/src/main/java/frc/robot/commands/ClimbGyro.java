@@ -25,8 +25,13 @@ public class ClimbGyro extends Command {
   protected void initialize() {
     //Robot.m_ElevatorTalon.gyroStop.start();
     Robot.m_ElevatorTalon.faultCount = 0;
+<<<<<<< HEAD
     Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
     Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
+=======
+    Robot.m_ElevatorTalon.frontSpeed = 0.75;
+    Robot.m_ElevatorTalon.backSpeed = 0.75;
+>>>>>>> 7e5d76102bc8ca152bab4283191f7f36b52693ea
     Robot.m_ElevatorTalon.AllUp();
   }//unsure when this initialize is recalled?  might re initialize if buttons are restriked?
 
@@ -47,9 +52,15 @@ public class ClimbGyro extends Command {
       Robot.m_ElevatorTalon.AllUp();
     }
     else
+<<<<<<< HEAD
     {//robot is level so not adjustments are made
       Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
+=======
+    {
+      Robot.m_ElevatorTalon.frontSpeed = 0.75;
+      Robot.m_ElevatorTalon.backSpeed = 0.75;
+>>>>>>> 7e5d76102bc8ca152bab4283191f7f36b52693ea
       Robot.m_ElevatorTalon.AllUp();
     }
 

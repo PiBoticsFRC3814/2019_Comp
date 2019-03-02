@@ -54,7 +54,6 @@ public class Robot extends TimedRobot {
 
   public static UsbCamera cam1;
   public static UsbCamera cam2;
-
   AHRS gyro;
   public static boolean driveDirection = true;
   public static boolean toggle = true;
