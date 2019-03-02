@@ -25,8 +25,8 @@ public class ClimbGyro extends Command {
   protected void initialize() {
     //Robot.m_ElevatorTalon.gyroStop.start();
     Robot.m_ElevatorTalon.faultCount = 0;
-    Robot.m_ElevatorTalon.frontSpeed = 0.5;
-    Robot.m_ElevatorTalon.backSpeed = 0.5;
+    Robot.m_ElevatorTalon.frontSpeed = 0.75;
+    Robot.m_ElevatorTalon.backSpeed = 0.75;
     Robot.m_ElevatorTalon.AllUp();
   }
 
@@ -36,20 +36,20 @@ public class ClimbGyro extends Command {
 
     if ((Robot.m_ElevatorTalon.GetAngle()-1.0) < 0.0)
     {
-      Robot.m_ElevatorTalon.frontSpeed = (0.5-0.1);
-      Robot.m_ElevatorTalon.backSpeed = 0.5;
+      Robot.m_ElevatorTalon.frontSpeed = (0.75-0.2);
+      Robot.m_ElevatorTalon.backSpeed = 0.75;
       Robot.m_ElevatorTalon.AllUp();
     }
     else if ((Robot.m_ElevatorTalon.GetAngle()-1.0) > 0.0)
     {
-      Robot.m_ElevatorTalon.backSpeed = (0.5-0.1);
-      Robot.m_ElevatorTalon.frontSpeed = 0.5;
+      Robot.m_ElevatorTalon.backSpeed = (0.75-0.2);
+      Robot.m_ElevatorTalon.frontSpeed = 0.75;
       Robot.m_ElevatorTalon.AllUp();
     }
     else
     {
-      Robot.m_ElevatorTalon.frontSpeed = 0.5;
-      Robot.m_ElevatorTalon.backSpeed = 0.5;
+      Robot.m_ElevatorTalon.frontSpeed = 0.75;
+      Robot.m_ElevatorTalon.backSpeed = 0.75;
       Robot.m_ElevatorTalon.AllUp();
     }
 

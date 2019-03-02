@@ -53,8 +53,8 @@ public class Robot extends TimedRobot {
 
   public static Compressor Comp;
 
-  public static UsbCamera cam;
-
+  public static UsbCamera cam1;
+  public static UsbCamera cam2;
   AHRS gyro;
   public static boolean driveDirection = true;
   public static boolean toggle = true;
@@ -87,8 +87,8 @@ public class Robot extends TimedRobot {
     
     Comp.setClosedLoopControl(true);
 
-    cam = CameraServer.getInstance().startAutomaticCapture(0);
-
+    cam1 = CameraServer.getInstance().startAutomaticCapture(0);
+    cam2 = CameraServer.getInstance().startAutomaticCapture(1);
     /*new Thread(() -> {
       UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
       camera.setResolution(640, 480);
