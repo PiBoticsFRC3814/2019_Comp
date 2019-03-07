@@ -37,12 +37,14 @@ public class ClimbGyro extends Command {
     if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) < 0.0)
     {//this will adjust the front speed motor if the front of the robot is too high
       Robot.m_ElevatorTalon.frontSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed)); 
+      //Robot.m_ElevatorTalon.frontSpeed = (0.0);
       Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
     else if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) > 0.0)
     {//this will adjust the back speed motor if the back of the robot is too high
       Robot.m_ElevatorTalon.backSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed));
+      //Robot.m_ElevatorTalon.backSpeed = (0.0);
       Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }

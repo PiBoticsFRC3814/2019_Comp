@@ -170,7 +170,11 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
+    
     Scheduler.getInstance().run();
+    SmartDashboard.putBoolean("hatch Gran", m_HatchGrab.grabDirection);
+    SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
+    SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
   }
 
   @Override
@@ -190,9 +194,8 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    SmartDashboard.putNumber("Hatch position test", OI.hatch);
-    SmartDashboard.putBoolean("hatch left", HatchTalon.limitLeft.get());
-    SmartDashboard.putBoolean("hatch right", HatchTalon.limitRight.get());
+    SmartDashboard.putBoolean("hatch Gran", m_HatchGrab.grabDirection);
+    SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
     SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
     /*
