@@ -197,7 +197,9 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("hatch Gran", m_HatchGrab.grabDirection);
     SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
-    SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
+    if (m_ElevatorTalon.gyro.isConnected()){
+      SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
+    }
     /*
     if(toggle && m_oi.driveToggle.get())
     {
