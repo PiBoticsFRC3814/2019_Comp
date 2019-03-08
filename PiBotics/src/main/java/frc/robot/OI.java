@@ -26,17 +26,17 @@ public class OI {
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
     public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
 
-    public Button toggleTilt = new JoystickButton(buttonStick, 5),
+    public Button toggleTilt = new JoystickButton(buttonStick, 11),
     toggleGrab = new JoystickButton(driverStick, 11),
     hatchLeft = new JoystickButton(driverStick, 5),
     hatchRight = new JoystickButton(driverStick, 6),
     hatchCenter = new JoystickButton(driverStick, 7),
     
     retractFrontClimb = new JoystickButton(buttonStick, 10),
-    retractBackClimb = new JoystickButton(buttonStick, 9),
+    retractBackClimb = new JoystickButton(buttonStick, 8),
     extendAllClimb = new JoystickButton(buttonStick, 3),
-    driveForwards = new JoystickButton(buttonStick, 8),
-    driveBackwards = new JoystickButton(buttonStick, 7),
+    driveForwards = new JoystickButton(buttonStick, 7),
+    driveBackwards = new JoystickButton(buttonStick, 9),
 
     driveToggle = new JoystickButton(driverStick, 9);
     
