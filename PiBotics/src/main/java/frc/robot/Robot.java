@@ -9,9 +9,6 @@ package frc.robot;
 
 
 
-
-import edu.wpi.cscore.UsbCamera;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -27,7 +24,6 @@ import frc.robot.subsystems.HatchGrab;
 import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
 import frc.robot.subsystems.driveTrain;
-import edu.wpi.first.cameraserver.CameraServer;
 import com.kauailabs.navx.frc.AHRS;
 
 /**
@@ -52,8 +48,6 @@ public class Robot extends TimedRobot {
 
   public static Compressor Comp;
 
-  public static UsbCamera cam1;
-  public static UsbCamera cam2;
   AHRS gyro;
   public static boolean driveDirection = true;
   public static boolean toggle = true;
@@ -86,28 +80,6 @@ public class Robot extends TimedRobot {
     
     Comp.setClosedLoopControl(true);
 
-    cam1 = CameraServer.getInstance().startAutomaticCapture("cam1",0);
-    cam2 = CameraServer.getInstance().startAutomaticCapture("cam2",1);
-
-    /*new Thread(() -> {
-      UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
-      camera.setResolution(640, 480);
-      
-      CvSink cvSink = CameraServer.getInstance().getVideo();
-      CvSource outputStream = CameraServer.getInstance().putVideo("Blur", 640, 480);
-      
-      Mat source = new Mat();
-      Mat output = new Mat();
-      
-      while(!Thread.interrupted()) {
-          cvSink.grabFrame(source);
-          Imgproc.cvtColor(source, output, Imgproc.COLOR_BGR2GRAY);
-          outputStream.putFrame(output);
-      }
-  }).start();*/
-    
-    //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());
-    // chooser.addOption("My Auto", new MyAutoCommand());
     SmartDashboard.putData("Auto mode", m_chooser);
   }
 

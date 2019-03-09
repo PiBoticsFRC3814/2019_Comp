@@ -50,9 +50,9 @@ public class ElevatorTalon extends Subsystem {
   }
 
   public double GetAngle(){
-    if (gyro.isConnected()){
+    //if (gyro.isConnected()){
       angle = gyro.getPitch();
-    }
+    //}
     return angle;
   }
 
