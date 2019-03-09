@@ -22,12 +22,15 @@ public class HatchSolenoid extends Subsystem {
   
   DoubleSolenoid tiltSolenoid;
   public boolean tiltDirection = false;
+
+  public HatchSolenoid(){
+    tiltSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    
-    tiltSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
     
   }
 

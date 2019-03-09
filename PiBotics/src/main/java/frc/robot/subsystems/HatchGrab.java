@@ -21,11 +21,15 @@ public class HatchGrab extends Subsystem {
   DoubleSolenoid grabSolenoid;
   public Boolean grabDirection = false;
   
+  public HatchGrab() {
+    grabSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Grab1, RobotMap.hatch_Grab2);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    grabSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Grab1, RobotMap.hatch_Grab2);
+    
   }
 
   public void grabSolenoidControl()

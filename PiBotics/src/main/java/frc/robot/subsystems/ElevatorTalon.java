@@ -39,14 +39,18 @@ public class ElevatorTalon extends Subsystem {
   public Boolean backDone = false;
 
 
-  @Override
-  public void initDefaultCommand() {
-    // Set the default command for a subsystem here.
-    // setDefaultCommand(new MySpecialCommand());
+  public ElevatorTalon() {
+
     elevatorFront = new WPI_TalonSRX(RobotMap.elevator_Front);
     elevatorBack = new WPI_TalonSRX(RobotMap.elevator_Rear);
 
     gyro = new AHRS(Port.kMXP);
+  }
+
+  @Override
+  public void initDefaultCommand() {
+    // Set the default command for a subsystem here.
+    // setDefaultCommand(new MySpecialCommand());
   }
 
   public double GetAngle(){

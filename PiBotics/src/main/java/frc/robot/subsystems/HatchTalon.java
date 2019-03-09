@@ -33,11 +33,15 @@ public class HatchTalon extends Subsystem {
 
   public boolean centered = false;
 
+  public HatchTalon(){
+    Hatch = new WPI_TalonSRX(RobotMap.hatch_Slide);
+  }
+
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
-    Hatch = new WPI_TalonSRX(RobotMap.hatch_Slide);
+    
   }
   public void HatchLateralLeft()
   {
