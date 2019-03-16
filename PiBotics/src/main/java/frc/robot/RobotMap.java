@@ -49,4 +49,7 @@ public class RobotMap {
   public static final double backSpeed = 0.75;
   public static final double climbAdjustSpeed = 0.25; //new motor adjust speed increased to 0.25 since 0.2 was not enough
   public static final double gyroOffset = 1.0; //in our practivce this was around 1.0 degrees off might need to change at comp
+
+  public static final double FrontSpeed = 0.75;
+  public static final double BackSpeed = 0.5;
 }

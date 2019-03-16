@@ -23,6 +23,7 @@ import frc.robot.subsystems.HatchGrab;
 import frc.robot.subsystems.HatchSolenoid;
 import frc.robot.subsystems.HatchTalon;
 import frc.robot.subsystems.driveTrain;
+import frc.robot.subsystems.ElevatorTalonNew;
 import com.kauailabs.navx.frc.AHRS;
 
 /**
@@ -39,6 +40,7 @@ public class Robot extends TimedRobot {
   public static ClimbTalon m_ClimbTalon;
   public static HatchGrab m_HatchGrab;
   public static ElevatorTalon m_ElevatorTalon;
+  public static ElevatorTalonNew m_ElevatorTalonNew; 
   
   public static Timer timeguy;
 
@@ -66,6 +68,7 @@ public class Robot extends TimedRobot {
     m_ClimbTalon = new ClimbTalon();
     m_HatchGrab = new HatchGrab();
     m_ElevatorTalon = new ElevatorTalon();
+    m_ElevatorTalonNew = new ElevatorTalonNew();
 
     timeguy = new Timer();
     

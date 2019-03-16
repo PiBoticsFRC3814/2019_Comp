@@ -34,7 +34,9 @@ public class OI {
     
     retractFrontClimb = new JoystickButton(buttonStick, 10),
     retractBackClimb = new JoystickButton(buttonStick, 9),
-    extendAllClimb = new JoystickButton(buttonStick, 3),
+    //extendAllClimb = new JoystickButton(buttonStick, 3),
+    extendFrontClimb = new JoystickButton(buttonStick, 3),
+    extendBackClimb = new JoystickButton(buttonStick, 4),
     driveForwards = new JoystickButton(buttonStick, 8),
     driveBackwards = new JoystickButton(buttonStick, 7),
 
@@ -55,8 +57,12 @@ public class OI {
     retractBackClimb.whenPressed(new BackWheelsRetract());
     retractFrontClimb.whenReleased(new FrontWheelsStop());
     retractBackClimb.whenReleased(new BackWheelsStop());
-    extendAllClimb.whenPressed(new ExtendAll());  //no gyro assist
-    extendAllClimb.whenReleased(new StopAll());    // no gyro held button
+    //extendAllClimb.whenPressed(new ExtendAll());  //no gyro assist
+    //extendAllClimb.whenReleased(new StopAll());    // no gyro held button
+    extendFrontClimb.whenActive(new ClimbFront());
+    extendFrontClimb.whenInactive(new StopAllNew());
+    extendBackClimb.whenActive(new ClimbBack());
+    extendBackClimb.whenInactive(new StopAllNew());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
