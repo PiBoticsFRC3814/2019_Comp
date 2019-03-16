@@ -23,7 +23,7 @@ public class ClimbGyro extends Command {
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    //Robot.m_ElevatorTalon.gyroStop.start();
+    //run once when button is pressed?
     Robot.m_ElevatorTalon.faultCount = 0;
     Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
     Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
@@ -36,30 +36,25 @@ public class ClimbGyro extends Command {
 
     if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) > 0.0)
     {//this will adjust the front speed motor if the front of the robot is too high
-      Robot.m_ElevatorTalon.frontSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed)); 
-      //Robot.m_ElevatorTalon.frontSpeed = (0.0);
-      Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
+      Robot.m_ElevatorTalon.frontSpeed = (RobotMap.frontSpeed-(RobotMap.climbAdjustSpeed)); 
+      //Robot.m_ElevatorTalon.frontSpeed = (0.0); //this is here for testing only
+      Robot.m_ElevatorTalon.backSpeed = RobotMap.backSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
     else if ((Robot.m_ElevatorTalon.GetAngle()-RobotMap.gyroOffset) < 0.0)
     {//this will adjust the back speed motor if the back of the robot is too high
-      Robot.m_ElevatorTalon.backSpeed = (RobotMap.climbSpeed-(RobotMap.climbAdjustSpeed));
-      //Robot.m_ElevatorTalon.backSpeed = (0.0);
-      Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
+      Robot.m_ElevatorTalon.backSpeed = (RobotMap.backSpeed-(RobotMap.climbAdjustSpeed));
+      //Robot.m_ElevatorTalon.backSpeed = (0.0); //this is here for testing only
+      Robot.m_ElevatorTalon.frontSpeed = RobotMap.frontSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
     else
-    {//robot is level so not adjustments are made
-      Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
-      Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
+    {//robot is level so no adjustments are made this will probably never run
+
+      Robot.m_ElevatorTalon.frontSpeed = RobotMap.frontSpeed;
+      Robot.m_ElevatorTalon.backSpeed = RobotMap.backSpeed;
       Robot.m_ElevatorTalon.AllUp();
     }
-
-    if (Robot.m_ElevatorTalon.elevatorFront.getOutputCurrent() > 50.0 || Robot.m_ElevatorTalon.elevatorBack.getOutputCurrent() > 50.0)
-    {//this is currently not being used.  may be an option in the future for timing
-      Robot.m_ElevatorTalon.faultCount++;
-    }
-    //Robot.m_ElevatorTalon.AllUp();
 }
 
   // Make this return true when this Command no longer needs to run execute()

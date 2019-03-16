@@ -45,6 +45,8 @@ public class RobotMap {
   public static boolean timertest = true;
   //climb speed and gyro adjustment vaules
   public static final double climbSpeed = 0.75;
-  public static final double climbAdjustSpeed = 0.20; //adjust speed of 0.1 was not enough increased to 0.2
+  public static final double frontSpeed = 0.80; //replaced mototr had to tweak speed a little bit
+  public static final double backSpeed = 0.75;
+  public static final double climbAdjustSpeed = 0.25; //new motor adjust speed increased to 0.25 since 0.2 was not enough
   public static final double gyroOffset = 1.0; //in our practivce this was around 1.0 degrees off might need to change at comp
 }
