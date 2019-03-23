@@ -12,18 +12,11 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Timer;
-import frc.robot.subsystems.ClimbTalon;
-import frc.robot.subsystems.ElevatorTalon;
-import frc.robot.subsystems.HatchGrab;
-import frc.robot.subsystems.HatchSolenoid;
-import frc.robot.subsystems.HatchTalon;
-import frc.robot.subsystems.driveTrain;
-import frc.robot.subsystems.ElevatorTalonNew;
+import frc.robot.subsystems.*;
 import com.kauailabs.navx.frc.AHRS;
 
 /**
@@ -34,13 +27,12 @@ import com.kauailabs.navx.frc.AHRS;
  * project.
  */
 public class Robot extends TimedRobot {
-  public static driveTrain m_driveTrain;
+  public static DriveTrain m_DriveTrain;
   public static HatchSolenoid m_HatchSolenoid;
   public static HatchTalon m_HatchTalon;
   public static ClimbTalon m_ClimbTalon;
   public static HatchGrab m_HatchGrab;
   public static ElevatorTalon m_ElevatorTalon;
-  public static ElevatorTalonNew m_ElevatorTalonNew; 
   
   public static Timer timeguy;
 
@@ -62,21 +54,18 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
 
-    m_driveTrain = new driveTrain();
+    m_DriveTrain = new DriveTrain();
     m_HatchSolenoid = new HatchSolenoid();
     m_HatchTalon = new HatchTalon();
     m_ClimbTalon = new ClimbTalon();
     m_HatchGrab = new HatchGrab();
     m_ElevatorTalon = new ElevatorTalon();
-    m_ElevatorTalonNew = new ElevatorTalonNew();
 
     timeguy = new Timer();
     
     Comp = new Compressor(1);
 
     m_oi = new OI();
-
-    OI.hatch = 0;
     
     Comp.setClosedLoopControl(true);
 
@@ -124,6 +113,9 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
 
+    Robot.m_HatchGrab.grabSolenoidControl();
+    Robot.m_HatchSolenoid.tiltForward();
+
     /*
      * String autoSelected = SmartDashboard.getString("Auto Selector",
      * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
@@ -144,9 +136,12 @@ public class Robot extends TimedRobot {
   public void autonomousPeriodic() {
     
     Scheduler.getInstance().run();
-    SmartDashboard.putBoolean("hatch Gran", m_HatchGrab.grabDirection);
+    SmartDashboard.putBoolean("hatch Grab", m_HatchGrab.grabDirection);
     SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
+    if (m_ElevatorTalon.gyro.isConnected()){
+      SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
+    }
   }
 
   @Override
@@ -166,35 +161,12 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
-    SmartDashboard.putBoolean("hatch Gran", m_HatchGrab.grabDirection);
+    SmartDashboard.putBoolean("hatch Grab", m_HatchGrab.grabDirection);
     SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());
     if (m_ElevatorTalon.gyro.isConnected()){
       SmartDashboard.putNumber("gyro", m_ElevatorTalon.GetAngle());
     }
-    /*
-    if(toggle && m_oi.driveToggle.get())
-    {
-      toggle = false;
-
-      if(!driveDirection)
-      {
-        driveDirection = true;
-      }
-      else
-      {
-        driveDirection = false;
-      }
-    }
-    else if (!m_oi.driveToggle.get())
-    {
-      toggle = true;
-    }
-    */
-    SmartDashboard.putBoolean("dr", driveDirection);
-    SmartDashboard.putBoolean("Joy", m_oi.driveToggle.get());
-    SmartDashboard.putBoolean("hatch", m_HatchGrab.grabDirection);
-
   }
 
   /**

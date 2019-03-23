@@ -7,11 +7,8 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.OI;
 import frc.robot.Robot;
-import frc.robot.RobotMap;
 import frc.robot.subsystems.HatchTalon;
 
 
@@ -32,28 +29,28 @@ public class HatchCenter extends Command {
   @Override
   protected void execute() {
     if(!HatchTalon.limitRight.get()){
-      OI.hatch = -1000;
+      Robot.m_HatchTalon.hatch = -1000;
     }
     if(!HatchTalon.limitLeft.get()){
-      OI.hatch = 1000;
+      Robot.m_HatchTalon.hatch = 1000;
     }
-    if(OI.hatch > 0) // tells you what direction to go
+    if(Robot.m_HatchTalon.hatch > 0) // tells you what direction to go
     {
       Robot.m_HatchTalon.HatchLateralRight();
       if(!HatchTalon.limitCenter.get()) // goes until hits center
       {
-        OI.hatch = 0;
+        Robot.m_HatchTalon.hatch = 0;
       } 
     }
-    if(OI.hatch < 0)// tell you what direction to go
+    if(Robot.m_HatchTalon.hatch < 0)// tell you what direction to go
     {    
       Robot.m_HatchTalon.HatchLateralLeft();
       if(!HatchTalon.limitCenter.get())//goes untill center
       {
-        OI.hatch = 0;
+        Robot.m_HatchTalon.hatch = 0;
       }
     }
-    if (OI.hatch == 0)
+    if (Robot.m_HatchTalon.hatch == 0)
     {
       Robot.m_HatchTalon.HatchLateralStop();
       Robot.m_HatchTalon.centered = true;

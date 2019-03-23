@@ -8,16 +8,15 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.OI;
 import frc.robot.Robot;
 
 /**
  * An example command.  You can replace me with your own command.
  */
-public class driveJoy extends Command {
-  public driveJoy() {
+public class DriveJoy extends Command {
+  public DriveJoy() {
     // Use requires() here to declare subsystem dependencies
-    requires(Robot.m_driveTrain);
+    requires(Robot.m_DriveTrain);
   }
 
   // Called just before this Command runs the first time
@@ -29,18 +28,11 @@ public class driveJoy extends Command {
   @Override
   protected void execute() {
     double y, z;
-    if(Robot.driveDirection) // changes the drive direction
-    {
-     y = -Robot.m_oi.driverStick.getY();
-     z = Robot.m_oi.driverStick.getZ();
-    }
-    else// changes the drive direction
-    {
+    
      y = (0.8)*Robot.m_oi.driverStick.getY(); //speed nerf probabably needed
      z = Robot.m_oi.driverStick.getZ(); //speed nerf??
-    }
     
-    Robot.m_driveTrain.arcadeDrive(y, z);
+    Robot.m_DriveTrain.arcadeDrive(y, z);
   }
 
   // Make this return true when this Command no longer needs to run execute()
@@ -52,7 +44,7 @@ public class driveJoy extends Command {
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.m_driveTrain.arcadeDrive(0, 0);
+    Robot.m_DriveTrain.arcadeDrive(0, 0);
   }
 
   // Called when another command which requires one or more of the same

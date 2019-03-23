@@ -10,7 +10,6 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.I2C.Port;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
@@ -26,17 +25,10 @@ public class ElevatorTalon extends Subsystem {
 
   public AHRS gyro;
 
-  public Timer gyroStop;
-
   public double frontSpeed = 0.0;
   public double backSpeed = 0.0;
 
   public double angle = 0.0;
-
-  public int faultCount = 0;
-
-  public Boolean frontDone = false;
-  public Boolean backDone = false;
 
 
   public ElevatorTalon() {

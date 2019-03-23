@@ -20,8 +20,6 @@ import frc.robot.RobotMap;
  */
 
 public class OI {
-
-    public static int hatch;
   
     public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
     public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
@@ -34,9 +32,9 @@ public class OI {
     
     retractFrontClimb = new JoystickButton(buttonStick, 10),
     retractBackClimb = new JoystickButton(buttonStick, 9),
-    //extendAllClimb = new JoystickButton(buttonStick, 3),
-    extendFrontClimb = new JoystickButton(buttonStick, 3),
-    extendBackClimb = new JoystickButton(buttonStick, 4),
+    extendAllClimb = new JoystickButton(buttonStick, 3),
+    //extendFrontClimb = new JoystickButton(buttonStick, ##), //need to assign buttons not enough on existing joystick
+    //extendBackClimb = new JoystickButton(buttonStick, ##), //need to assign buttons not enough on existing joystick
     driveForwards = new JoystickButton(buttonStick, 8),
     driveBackwards = new JoystickButton(buttonStick, 7),
 
@@ -57,12 +55,12 @@ public class OI {
     retractBackClimb.whenPressed(new BackWheelsRetract());
     retractFrontClimb.whenReleased(new FrontWheelsStop());
     retractBackClimb.whenReleased(new BackWheelsStop());
-    //extendAllClimb.whenPressed(new ExtendAll());  //no gyro assist
-    //extendAllClimb.whenReleased(new StopAll());    // no gyro held button
-    extendFrontClimb.whenActive(new ClimbFront());
-    extendFrontClimb.whenInactive(new StopAllNew());
-    extendBackClimb.whenActive(new ClimbBack());
-    extendBackClimb.whenInactive(new StopAllNew());
+    extendAllClimb.whenPressed(new ExtendAll());
+    extendAllClimb.whenReleased(new StopAll());
+    //extendFrontClimb.whenActive(new ClimbFrontManual());
+    //extendFrontClimb.whenInactive(new StopAll());
+    //extendBackClimb.whenActive(new ClimbBackManual());
+    //extendBackClimb.whenInactive(new StopAll());
     driveForwards.whenActive(new ClimbDriveForward());
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
@@ -70,68 +68,3 @@ public class OI {
 
   }
 }
-
-/*Emergency buttons
-
-package frc.robot;
-
-import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import frc.robot.commands.*;
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.buttons.Button;
-import frc.robot.RobotMap;
-
-public class OI {
-
-  public static int hatch;
-
-  public Joystick driverStick = new Joystick(RobotMap.oi_Driver);
-  public Joystick buttonStick = new Joystick(RobotMap.oi_Operator);
-
-  public Button toggleTilt = new JoystickButton(buttonStick, 4),
-  toggleGrab = new JoystickButton(driverStick, 11),
-  hatchLeft = new JoystickButton(driverStick, 5),
-  hatchRight = new JoystickButton(driverStick, 6),
-  hatchCenter = new JoystickButton(driverStick, 7),
-  
-  retractFrontClimb = new JoystickButton(buttonStick, 10),
-  retractBackClimb = new JoystickButton(buttonStick, 12),
-  extendAllClimb1 = new JoystickButton(buttonStick, 7),
-  extendAllClimb2 = new JoystickButton(buttonStick, 8),
-  driveForwards = new JoystickButton(buttonStick, 11),
-  driveBackwards = new JoystickButton(buttonStick, 9),
-
-  driveToggle = new JoystickButton(driverStick, 9);
-  
-
-public OI(){
-
-  toggleTilt.whenPressed(new HatchTiltToggle());
-  toggleGrab.whenPressed(new HatchToggle());
-  hatchLeft.whenActive(new HatchLeft());
-  hatchLeft.whenInactive(new HatchStop());
-  hatchRight.whenActive(new HatchRight());
-  hatchRight.whenInactive(new HatchStop());
-  hatchCenter.whenPressed(new HatchCenter());
-
-  retractFrontClimb.whenPressed(new FrontWheelsRetract());
-  retractBackClimb.whenPressed(new BackWheelsRetract());
-  retractFrontClimb.whenReleased(new FrontWheelsStop());
-  retractBackClimb.whenReleased(new BackWheelsStop());
-
-  if (extendAllClimb1.get() && extendAllClimb2.get())
-  {
-    new ExtendAll();
-  }
-  else
-  {
-    new StopAll();
-  }
-
-  driveForwards.whenActive(new ClimbDriveForward());
-  driveForwards.whenInactive(new ClimbDriveStop());
-  driveBackwards.whenActive(new ClimbDriveReverse());
-  driveBackwards.whenInactive(new ClimbDriveStop()); 
-
-}
-}*/

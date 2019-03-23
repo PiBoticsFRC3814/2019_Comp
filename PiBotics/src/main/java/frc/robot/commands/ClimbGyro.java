@@ -7,10 +7,7 @@
 
 package frc.robot.commands;
 
-import javax.lang.model.util.ElementScanner6;
-
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import frc.robot.RobotMap;
 
@@ -24,9 +21,8 @@ public class ClimbGyro extends Command {
   @Override
   protected void initialize() {
     //run once when button is pressed?
-    Robot.m_ElevatorTalon.faultCount = 0;
-    Robot.m_ElevatorTalon.frontSpeed = RobotMap.climbSpeed;
-    Robot.m_ElevatorTalon.backSpeed = RobotMap.climbSpeed;
+    Robot.m_ElevatorTalon.frontSpeed = RobotMap.frontSpeed;
+    Robot.m_ElevatorTalon.backSpeed = RobotMap.backSpeed;
     Robot.m_ElevatorTalon.AllUp();
   }//unsure when this initialize is recalled?  might re initialize if buttons are restriked?
 

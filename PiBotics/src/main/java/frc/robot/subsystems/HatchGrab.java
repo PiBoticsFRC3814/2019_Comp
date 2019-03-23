@@ -19,7 +19,7 @@ public class HatchGrab extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
   DoubleSolenoid grabSolenoid;
-  public Boolean grabDirection = false;
+  public Boolean grabDirection = true;
   
   public HatchGrab() {
     grabSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Grab1, RobotMap.hatch_Grab2);

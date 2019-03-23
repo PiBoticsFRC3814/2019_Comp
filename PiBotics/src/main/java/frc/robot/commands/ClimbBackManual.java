@@ -10,24 +10,22 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-
-public class GrabHatchCommand extends Command {
-  public GrabHatchCommand() {
-    // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.m_HatchSolenoid);
+public class ClimbBackManual extends Command {
+  public ClimbBackManual() {
+    requires(Robot.m_ElevatorTalon);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
-    
   }
+
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() { // this is dumb
-    Robot.m_HatchGrab.grabSolenoidControl();
+  protected void execute() {
+    Robot.m_ElevatorTalon.BackUp();
   }
+
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {

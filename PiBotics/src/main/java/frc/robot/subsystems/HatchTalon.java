@@ -11,7 +11,6 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.*;
 
-import frc.robot.OI;
 import frc.robot.RobotMap;
 
 
@@ -30,6 +29,7 @@ public class HatchTalon extends Subsystem {
 
   double leftSpeed = 1.0;  // we may want to map the speed variables for better editing purposes
   double rightSpeed = -1.0;
+  public int hatch = 0;
 
   public boolean centered = false;
 

@@ -23,33 +23,25 @@ public class RobotMap {
   public static final int elevator_Front = 31;
   public static final int elevator_Rear = 32;
   public static final int hatch_Slide = 40;
+
   //solenoids
   public static final int hatch_Grab1 = 0;
   public static final int hatch_Grab2 = 1;
   public static final int hatch_Tilt1 = 4;
   public static final int hatch_Tilt2 = 5;
-  //camera
-  public static final int camera_X = 0;
-  public static final int camera_Y = 1;
+
   //sticks
   public static final int oi_Driver = 0;
   public static final int oi_Operator = 2;
+
   // limitswitches
   public static final int oi_LimitL = 0;
   public static final int oi_LimitR = 1;
   public static final int oi_LimitC = 2;
-  //not sure what theese time variables are
-  public static boolean actuateTime = true;
-  public static boolean actualTime = true;
-  public static double slowTime = 0.0;
-  public static boolean timertest = true;
+  
   //climb speed and gyro adjustment vaules
-  public static final double climbSpeed = 0.75;
   public static final double frontSpeed = 0.80; //replaced mototr had to tweak speed a little bit
   public static final double backSpeed = 0.75;
   public static final double climbAdjustSpeed = 0.25; //new motor adjust speed increased to 0.25 since 0.2 was not enough
   public static final double gyroOffset = 1.0; //in our practivce this was around 1.0 degrees off might need to change at comp
-
-  public static final double FrontSpeed = 0.75;
-  public static final double BackSpeed = 0.5;
 }

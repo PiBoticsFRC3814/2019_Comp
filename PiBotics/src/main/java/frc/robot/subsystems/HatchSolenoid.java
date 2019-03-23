@@ -21,7 +21,7 @@ public class HatchSolenoid extends Subsystem {
   // here. Call these from Commands.
   
   DoubleSolenoid tiltSolenoid;
-  public boolean tiltDirection = false;
+  public boolean tiltDirection = true;
 
   public HatchSolenoid(){
     tiltSolenoid = new DoubleSolenoid(0, RobotMap.hatch_Tilt1, RobotMap.hatch_Tilt2);
