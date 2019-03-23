@@ -29,10 +29,10 @@ public class HatchCenter extends Command {
   @Override
   protected void execute() {
     if(!HatchTalon.limitRight.get()){
-      Robot.m_HatchTalon.hatch = -1000;
+      Robot.m_HatchTalon.hatch = -1000; // force robot to know the side it is on
     }
     if(!HatchTalon.limitLeft.get()){
-      Robot.m_HatchTalon.hatch = 1000;
+      Robot.m_HatchTalon.hatch = 1000; // force robot to know the side it is on
     }
     if(Robot.m_HatchTalon.hatch > 0) // tells you what direction to go
     {

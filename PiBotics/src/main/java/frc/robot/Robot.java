@@ -113,7 +113,7 @@ public class Robot extends TimedRobot {
   public void autonomousInit() {
     m_autonomousCommand = m_chooser.getSelected();
 
-    Robot.m_HatchGrab.grabSolenoidControl();
+    Robot.m_HatchGrab.grabSolenoidControl();//at beginning of match grab and tilt out
     Robot.m_HatchSolenoid.tiltForward();
 
     /*
@@ -134,7 +134,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousPeriodic() {
-    
+    //display for the driver
     Scheduler.getInstance().run();
     SmartDashboard.putBoolean("hatch Grab", m_HatchGrab.grabDirection);
     SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
@@ -161,6 +161,7 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     Scheduler.getInstance().run();
+    // display for the driver
     SmartDashboard.putBoolean("hatch Grab", m_HatchGrab.grabDirection);
     SmartDashboard.putBoolean("Hatch Tilt", m_HatchSolenoid.tiltDirection);
     SmartDashboard.putBoolean("hatch center", HatchTalon.limitCenter.get());

@@ -36,10 +36,7 @@ public class OI {
     //extendFrontClimb = new JoystickButton(buttonStick, ##), //need to assign buttons not enough on existing joystick
     //extendBackClimb = new JoystickButton(buttonStick, ##), //need to assign buttons not enough on existing joystick
     driveForwards = new JoystickButton(buttonStick, 8),
-    driveBackwards = new JoystickButton(buttonStick, 7),
-
-    driveToggle = new JoystickButton(driverStick, 9);
-    
+    driveBackwards = new JoystickButton(buttonStick, 7);
 
   public OI(){
 
@@ -65,6 +62,5 @@ public class OI {
     driveForwards.whenInactive(new ClimbDriveStop());
     driveBackwards.whenActive(new ClimbDriveReverse());
     driveBackwards.whenInactive(new ClimbDriveStop()); 
-
   }
 }

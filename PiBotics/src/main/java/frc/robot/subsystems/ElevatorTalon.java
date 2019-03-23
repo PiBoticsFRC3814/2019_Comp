@@ -40,9 +40,6 @@ public class ElevatorTalon extends Subsystem {
 
     gyro = new AHRS(Port.kMXP);
 
-    //elevatorFront.setSafetyEnabled(false); //probably do not need to disable motor safety
-    //elevatorBack.setSafetyEnabled(false);
-
     //the following add current limits to the talon motor controllers.
     //we were able to deturmine that the motor towards the drive team was tripping the PCM breaker
     //current limit should lower our locked rotor current and increase the time it takes to trip the breaker
